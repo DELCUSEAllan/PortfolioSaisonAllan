@@ -1,5 +1,3 @@
-// src/components/BarreNavigation.jsx
-
 import Link from "next/link";
 
 export default function BarreNavigation() {
@@ -15,7 +13,9 @@ export default function BarreNavigation() {
         justifyContent: "space-around",
         alignItems: "center",
         backgroundColor: "#FFFFFF",
-        borderTop: "1px solid rgba(0,0,0,0.08)",
+        borderTop: "1px solid rgba(0, 0, 0, 0.08)",
+        fontSize: "12px",
+        color: "#6B7280", // couleur de texte cohérente avec ta palette
       }}
     >
       <Link href="/">Accueil</Link>

@@ -1,10 +1,15 @@
 "use client";
 
+
 import BarreNavigation from "./components/BarreNavigation";
 import EnTeteAccueil from "./components/EnTeteAccueil";
 import { SAISONS } from "./config/couleursSaisons";
 import { determinerSaisonParDate } from "./utils/saisons";
 import styles from "./page.module.css";
+import CarteSaison from "./components/CarteSaison";
+import EtiquettesTechnos from "./components/EtiquettesTechnos";
+import BoutonPrincipal from "./components/BoutonPrincipal";
+
 
 const saisonAutoParDate = determinerSaisonParDate(new Date());
 
@@ -14,7 +19,7 @@ export default function Accueil() {
 
   return (
     <>
-      <main
+            <main
         className={styles.accueil}
         style={{
           backgroundColor: saison.fondPage,
@@ -24,7 +29,14 @@ export default function Accueil() {
         <div className={styles.contenu}>
           <EnTeteAccueil />
 
-          <p>Saison actuelle (auto) : {saison.nom}</p>
+          <CarteSaison nomSaison={saison.nom} />
+
+        <EtiquettesTechnos />
+
+        <BoutonPrincipal texte="Voir mes projets" />
+
+        <p>Saison actuelle (auto) : {saison.nom}</p>
+
         </div>
       </main>
 

@@ -15,7 +15,7 @@ export default function EnTeteAccueil() {
         <div className="en-tete-textes">
           <h1 className="en-tete-nom">Ton Prénom</h1>
           <p className="en-tete-sous-titre">
-            Développeur Web &amp; Java · Arras
+            Bachelor Développement Informatique · Arras
           </p>
         </div>
       </div>
