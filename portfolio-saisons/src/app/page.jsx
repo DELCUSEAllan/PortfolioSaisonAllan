@@ -1,28 +1,31 @@
 "use client";
 
-import BarreNavigation from "../components/BarreNavigation";
-import { SAISONS } from "../config/couleursSaisons";
-import { determinerSaisonParDate } from "../utils/saisons";
+import BarreNavigation from "./components/BarreNavigation";
+import EnTeteAccueil from "./components/EnTeteAccueil";
+import { SAISONS } from "./config/couleursSaisons";
+import { determinerSaisonParDate } from "./utils/saisons";
+import styles from "./page.module.css";
 
 const saisonAutoParDate = determinerSaisonParDate(new Date());
 
 export default function Accueil() {
-  // pour l’instant, on reste 100 % en mode automatique
   const saisonActuelle = saisonAutoParDate;
   const saison = SAISONS[saisonActuelle];
 
   return (
     <>
       <main
+        className={styles.accueil}
         style={{
-          paddingBottom: "60px",
-          minHeight: "100vh",
           backgroundColor: saison.fondPage,
           color: saison.textePrincipal,
         }}
       >
-        <h1>Accueil</h1>
-        <p>Saison actuelle (auto) : {saison.nom}</p>
+        <div className={styles.contenu}>
+          <EnTeteAccueil />
+
+          <p>Saison actuelle (auto) : {saison.nom}</p>
+        </div>
       </main>
 
       <BarreNavigation />
