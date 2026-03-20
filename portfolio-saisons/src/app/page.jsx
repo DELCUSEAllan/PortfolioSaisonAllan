@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 
 import BarreNavigation from "./components/BarreNavigation";
 import EnTeteAccueil from "./components/EnTeteAccueil";
@@ -9,38 +10,42 @@ import styles from "./page.module.css";
 import CarteSaison from "./components/CarteSaison";
 import EtiquettesTechnos from "./components/EtiquettesTechnos";
 import BoutonPrincipal from "./components/BoutonPrincipal";
+import SelectionSaison from "./components/SelectionSaison";
 
 
 const saisonAutoParDate = determinerSaisonParDate(new Date());
 
 export default function Accueil() {
-  const saisonActuelle = saisonAutoParDate;
-  const saison = SAISONS[saisonActuelle];
+    const [saisonSelectionnee, setSaisonSelectionnee] = React.useState("auto");
+    const saisonActuelle = saisonSelectionnee === "auto" ? saisonAutoParDate : saisonSelectionnee;
+    const saison = SAISONS[saisonActuelle];
 
   return (
     <>
-            <main
-        className={styles.accueil}
-        style={{
-          backgroundColor: saison.fondPage,
-          color: saison.textePrincipal,
-        }}
-      >
+        <main
+            className={styles.accueil}
+            style={{
+                background: `linear-gradient(180deg, ${saison.badgeFond} 0%, ${saison.fondPage} 40%, ${saison.boutonSecondaireFond} 100%)`,
+            }}
+        >
+
+
         <div className={styles.contenu}>
-          <EnTeteAccueil />
+          <EnTeteAccueil valeurSaison={saisonSelectionnee} onChangeSaison={setSaisonSelectionnee} />
 
           <CarteSaison nomSaison={saison.nom} />
 
-        <EtiquettesTechnos />
+          <EtiquettesTechnos />
 
-        <BoutonPrincipal texte="Voir mes projets" />
-
-        <p>Saison actuelle (auto) : {saison.nom}</p>
+          <BoutonPrincipal texte="Voir mes projets" />
 
         </div>
       </main>
 
-      <BarreNavigation />
+      <BarreNavigation
+  couleurActive={saison.boutonPrincipalFond}
+  couleurTexte={saison.texteSecondaire}
+/>
     </>
   );
 }

@@ -1,6 +1,19 @@
-import Link from "next/link";
+// src/app/components/BarreNavigation.jsx
 
-export default function BarreNavigation() {
+import Link from "next/link";
+import { FaHome } from "react-icons/fa";
+import { FaBolt } from "react-icons/fa";
+import { FaBriefcase } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
+
+export default function BarreNavigation({ couleurActive, couleurTexte }) {
+  const liens = [
+    { href: "/", label: "Accueil", icone: FaHome },
+    { href: "/competences", label: "Compétences", icone: FaBolt },
+    { href: "/projets", label: "Projets", icone: FaBriefcase },
+    { href: "/contact", label: "Contact", icone: FaEnvelope },
+  ];
+
   return (
     <nav
       style={{
@@ -8,20 +21,36 @@ export default function BarreNavigation() {
         bottom: 0,
         left: 0,
         right: 0,
-        height: "60px",
+        height: "64px",
         display: "flex",
         justifyContent: "space-around",
         alignItems: "center",
         backgroundColor: "#FFFFFF",
         borderTop: "1px solid rgba(0, 0, 0, 0.08)",
-        fontSize: "12px",
-        color: "#6B7280", // couleur de texte cohérente avec ta palette
       }}
     >
-      <Link href="/">Accueil</Link>
-      <Link href="/competences">Compétences</Link>
-      <Link href="/projets">Projets</Link>
-      <Link href="/contact">Contact</Link>
+      {liens.map((lien) => {
+        const Icone = lien.icone;
+        return (
+          <Link
+            key={lien.href}
+            href={lien.href}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "3px",
+              color: couleurTexte || "#6B7280",
+              fontSize: "10px",
+              fontWeight: "600",
+              textDecoration: "none",
+            }}
+          >
+            <Icone size={20} color={couleurActive || "#A2D39C"} />
+            {lien.label}
+          </Link>
+        );
+      })}
     </nav>
   );
 }

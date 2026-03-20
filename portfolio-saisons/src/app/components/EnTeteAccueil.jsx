@@ -1,9 +1,11 @@
-export default function EnTeteAccueil() {
+import SelectionSaison from "./SelectionSaison";
+
+export default function EnTeteAccueil({ valeurSaison, onChangeSaison }) {
   return (
     <header className="en-tete-accueil">
       <div className="en-tete-ligne-superieure">
-        <div className="en-tete-placeholder-saison">
-          {/* Ici on mettra plus tard le select de saison */}
+        <div className="en-tete-placeholder-saison" style={{ background: "none" }}>
+          <SelectionSaison valeur={valeurSaison} onChange={onChangeSaison} compact />
         </div>
       </div>
 
@@ -13,7 +15,7 @@ export default function EnTeteAccueil() {
         </div>
 
         <div className="en-tete-textes">
-          <h1 className="en-tete-nom">Ton Prénom</h1>
+          <h1 className="en-tete-nom">DELCUSE Allan</h1>
           <p className="en-tete-sous-titre">
             Bachelor Développement Informatique · Arras
           </p>
