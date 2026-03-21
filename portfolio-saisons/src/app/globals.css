@@ -67,13 +67,20 @@ nav a {
 }
 
 .en-tete-avatar {
-  width: 72px;
-  height: 72px;
+  width: 120px;
+  height: 120px;
   border-radius: 999px;
-  background-color: rgba(0, 0, 0, 0.06);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.en-tete-avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
 }
 
 .en-tete-avatar-lettre {
@@ -335,4 +342,42 @@ nav a {
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
+}
+
+/* Sections de contenu */
+
+.section-presentation {
+  margin-top: 16px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-titre {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.section-texte {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.85;
+}
+
+.section-presentation {
+  margin-top: 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.en-tete-avatar-image {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  object-fit: cover;
 }

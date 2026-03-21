@@ -7,11 +7,12 @@ import EnTeteAccueil from "./components/EnTeteAccueil";
 import { SAISONS } from "./config/couleursSaisons";
 import { determinerSaisonParDate } from "./utils/saisons";
 import styles from "./page.module.css";
-import CarteSaison from "./components/CarteSaison";
 import EtiquettesTechnos from "./components/EtiquettesTechnos";
 import BoutonPrincipal from "./components/BoutonPrincipal";
 import SelectionSaison from "./components/SelectionSaison";
 import BoutonAction from "./components/BoutonAction";
+import SectionPresentation from "./components/SectionPresentation";
+
 
 const saisonAutoParDate = determinerSaisonParDate(new Date());
 
@@ -33,7 +34,7 @@ export default function Accueil() {
         <div className={styles.contenu}>
           <EnTeteAccueil valeurSaison={saisonSelectionnee} onChangeSaison={setSaisonSelectionnee} />
 
-          <CarteSaison nomSaison={saison.nom} />
+          <SectionPresentation />
 
           <EtiquettesTechnos />
 

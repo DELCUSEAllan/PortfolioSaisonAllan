@@ -1,11 +1,4 @@
-const TECHNOS = [
-  "Java",
-  "React",
-  "Go",
-  "SQL",
-  "JavaScript",
-  "CSS",
-];
+import { TECHNOS } from "../config/contenuAccueil";
 
 export default function EtiquettesTechnos() {
   return (
