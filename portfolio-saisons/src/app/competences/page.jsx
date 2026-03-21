@@ -8,7 +8,7 @@ import { SAISONS } from "../config/couleursSaisons";
 import { COMPETENCES, INTRO_COMPETENCES } from "../config/competences";
 import { useSaison } from "../context/SaisonContext";
 import "../styles/competences/competences.css";
-import TexteFormate from "../components/TexteFormate";
+import TexteFormate from "../components/TexteFormat";
 
 
 export default function Competences() {

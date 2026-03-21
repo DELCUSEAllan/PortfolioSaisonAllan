@@ -5,7 +5,7 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import { PRESENTATION } from "../config/contenuAccueil";
 import CanvasSakura from "./CanvasSakura";
-import TexteFormate from "./TexteFormate";
+import TexteFormate from "./TexteFormat";
 
 export default function SectionPresentation({ saisonActuelle }) {
   const dernierIndex = PRESENTATION.paragraphes.length - 1;

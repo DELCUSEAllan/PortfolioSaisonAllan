@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const OPTIONS_SAISON = [
   { valeur: "auto", label: "Automatique", emoji: "🔄" },
@@ -10,14 +11,6 @@ const OPTIONS_SAISON = [
   { valeur: "hiver", label: "Hiver", emoji: "❄️" },
 ];
 
-
-import PropTypes from "prop-types";
-
-SelectionSaison.propTypes = {
-  valeur: PropTypes.string,
-  onChange: PropTypes.func,
-  compact: PropTypes.bool,
-};
 
 export default function SelectionSaison({ valeur, onChange, compact }) {
   const [ouvert, setOuvert] = useState(false);
@@ -69,3 +62,9 @@ export default function SelectionSaison({ valeur, onChange, compact }) {
     </div>
   );
 }
+
+SelectionSaison.propTypes = {
+  valeur: PropTypes.string,
+  onChange: PropTypes.func,
+  compact: PropTypes.bool,
+};
