@@ -48,6 +48,8 @@ nav a {
    ===================== */
 
 .en-tete-accueil {
+  position: relative;
+  z-index: 2;
   padding-top: 24px;
   padding-bottom: 24px;
 }
@@ -77,8 +79,8 @@ nav a {
 }
 
 .en-tete-avatar-image {
-  width: 100%;
-  height: 100%;
+  width: 72px;
+  height: 72px;
   border-radius: 999px;
   object-fit: cover;
 }
@@ -346,38 +348,51 @@ nav a {
 
 /* Sections de contenu */
 
-.section-presentation {
-  margin-top: 16px;
-  margin-bottom: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
 .section-titre {
   font-size: 18px;
   font-weight: 700;
   margin: 0;
 }
 
+.section-presentation {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  border-radius: 16px;
+  padding: 16px;
+}
+
 .section-texte {
+  position: relative;
+  z-index: 1;
   font-size: 14px;
   line-height: 1.6;
   margin: 0;
   opacity: 0.85;
 }
 
-.section-presentation {
-  margin-top: 20px;
-  margin-bottom: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+/* Canvas Sakura */
+
+.canvas-sakura {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.en-tete-avatar-image {
-  width: 72px;
-  height: 72px;
-  border-radius: 999px;
-  object-fit: cover;
+.sakura-arbre {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 280px;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
 }
