@@ -1,0 +1,26 @@
+.section-titre {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.section-presentation {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.section-texte {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.85;
+}

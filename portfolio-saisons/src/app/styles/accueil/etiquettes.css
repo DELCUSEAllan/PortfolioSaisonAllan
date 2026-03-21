@@ -1,0 +1,17 @@
+.etiquettes-technos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.etiquette-techno {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1.5px solid #F5D7E3;
+  font-size: 12px;
+  background-color: #FFFA9C;
+  color: #111827;
+}
