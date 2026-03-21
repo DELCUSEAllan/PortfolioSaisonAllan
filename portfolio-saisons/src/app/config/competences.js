@@ -1,5 +1,4 @@
-
-export const INTRO_COMPETENCES = "Voici les technologies que j'ai pu apprendre et pratiquer au fil de mes projets et de ma formation.";
+export const INTRO_COMPETENCES = "Voici les **technologies** que j'ai pu **apprendre** et **pratiquer** au fil de mes **projets** et de ma **formation**.";
 export const COMPETENCES = [
   {
     id: "java",

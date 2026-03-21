@@ -8,6 +8,8 @@ import { SAISONS } from "../config/couleursSaisons";
 import { COMPETENCES, INTRO_COMPETENCES } from "../config/competences";
 import { useSaison } from "../context/SaisonContext";
 import "../styles/competences/competences.css";
+import TexteFormate from "../components/TexteFormate";
+
 
 export default function Competences() {
   const { saisonActuelle } = useSaison();
@@ -26,7 +28,9 @@ export default function Competences() {
 
           <h1 className="competences-titre">Mes Compétences</h1>
 
-          <p className="competences-intro">{INTRO_COMPETENCES}</p>
+          <p className="competences-intro">
+            <TexteFormate texte={INTRO_COMPETENCES} />
+            </p>
 
           <div className="competences-liste">
             {COMPETENCES.map((competence) => (

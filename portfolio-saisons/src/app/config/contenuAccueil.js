@@ -10,9 +10,9 @@ export const IDENTITE = {
 
 export const PRESENTATION = {
   paragraphes: [
-    "Déterminé et passionné d'informatique depuis toujours, je suis actuellement en Bachelor Développement Informatique au CESI Arras où je suis délégué de classe.",
-    "Mon ambition ? Me spécialiser dans le développement web et viser un BAC+5.",
-    "Si vous voulez en savoir plus sur moi, mon CV vous attend dans ",
+    "**Déterminé** et **passionné** d'informatique depuis toujours, je suis actuellement en **Bachelor Développement Informatique** au CESI Arras où je suis délégué de classe.",
+    "Mon ambition ? Me spécialiser dans le **développement web** et viser un BAC+5.",
+    "Et si vous voulez en savoir plus sur moi, mon CV vous attend dans ",
   ],
   lienContact: {
     texte: "l'onglet Contact !",
