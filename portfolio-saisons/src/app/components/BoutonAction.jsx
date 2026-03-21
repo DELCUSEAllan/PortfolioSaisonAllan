@@ -1,11 +1,18 @@
 "use client";
 
+import PropTypes from "prop-types";
 import { useState } from "react";
+
 
 const ACTIONS = [
   { label: "Blog", emoji: "📝", href: "/blog" },
   { label: "Charte", emoji: "🎨", href: "/charte" },
 ];
+
+BoutonAction.propTypes = {
+  couleurFond: PropTypes.string,
+  couleurTexte: PropTypes.string,
+};
 
 export default function BoutonAction({ couleurFond, couleurTexte }) {
   const [ouvert, setOuvert] = useState(false);

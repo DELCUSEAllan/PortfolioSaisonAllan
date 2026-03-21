@@ -41,7 +41,7 @@
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  background-color: #F5D7E3;
+  background-color: #FFFFFF;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(245, 215, 227, 0.5);
   list-style: none;
@@ -59,7 +59,7 @@
   border-radius: 10px;
   font-size: 12px;
   cursor: pointer;
-  color: #111827;
+  color: #000000;
   background: none;
   border: none;
   width: 100%;
@@ -71,7 +71,7 @@
 }
 
 .select-saison-option-active {
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: #F5D7E3;
   font-weight: 600;
-  color: #111827;
+  color: #1a1a1a;
 }

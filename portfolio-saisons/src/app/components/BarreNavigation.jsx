@@ -1,10 +1,13 @@
 // src/app/components/BarreNavigation.jsx
 
 import Link from "next/link";
-import { FaHome } from "react-icons/fa";
-import { FaBolt } from "react-icons/fa";
-import { FaBriefcase } from "react-icons/fa";
-import { FaEnvelope } from "react-icons/fa";
+import { FaHome, FaBolt, FaBriefcase, FaEnvelope } from "react-icons/fa";
+import PropTypes from "prop-types";
+
+BarreNavigation.propTypes = {
+  couleurActive: PropTypes.string,
+  couleurTexte: PropTypes.string,
+};
 
 export default function BarreNavigation({ couleurActive, couleurTexte }) {
   const liens = [

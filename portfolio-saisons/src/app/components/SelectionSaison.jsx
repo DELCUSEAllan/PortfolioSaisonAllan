@@ -10,6 +10,15 @@ const OPTIONS_SAISON = [
   { valeur: "hiver", label: "Hiver", emoji: "❄️" },
 ];
 
+
+import PropTypes from "prop-types";
+
+SelectionSaison.propTypes = {
+  valeur: PropTypes.string,
+  onChange: PropTypes.func,
+  compact: PropTypes.bool,
+};
+
 export default function SelectionSaison({ valeur, onChange, compact }) {
   const [ouvert, setOuvert] = useState(false);
 

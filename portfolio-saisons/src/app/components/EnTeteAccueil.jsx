@@ -2,6 +2,14 @@ import Image from "next/image";
 import { IDENTITE } from "../config/contenuAccueil";
 import SelectionSaison from "./SelectionSaison";
 
+
+import PropTypes from "prop-types";
+
+EnTeteAccueil.propTypes = {
+  valeurSaison: PropTypes.string,
+  onChangeSaison: PropTypes.func,
+};
+
 export default function EnTeteAccueil({ valeurSaison, onChangeSaison }) {
   return (
     <header className="en-tete-accueil">
