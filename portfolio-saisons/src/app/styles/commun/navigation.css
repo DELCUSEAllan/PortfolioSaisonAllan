@@ -20,4 +20,16 @@
   font-size: 10px;
   font-weight: 600;
   text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.barre-navigation-indicateur {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 3px;
+  border-radius: 999px;
 }
