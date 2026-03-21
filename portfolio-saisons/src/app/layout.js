@@ -4,6 +4,9 @@ import "./globals.css";
 
 import PropTypes from "prop-types";
 
+import { SaisonProvider } from "./context/SaisonContext";
+
+
 RootLayout.propTypes = {
   children: PropTypes.node,
 };
@@ -25,8 +28,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+    <html lang="fr" suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <SaisonProvider>
+          {children}
+        </SaisonProvider>
+      </body>
     </html>
   );
 }

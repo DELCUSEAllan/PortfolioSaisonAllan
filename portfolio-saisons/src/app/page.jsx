@@ -12,13 +12,13 @@ import BoutonPrincipal from "./components/BoutonPrincipal";
 import BoutonAction from "./components/BoutonAction";
 import SectionPresentation from "./components/SectionPresentation";
 import CanvasSakura from "./components/CanvasSakura";
+import { useSaison } from "./context/SaisonContext";
 
 const saisonAutoParDate = determinerSaisonParDate(new Date());
 
 export default function Accueil() {
-  const [saisonSelectionnee, setSaisonSelectionnee] = React.useState("auto");
-  const saisonActuelle = saisonSelectionnee === "auto" ? saisonAutoParDate : saisonSelectionnee;
-  const saison = SAISONS[saisonActuelle];
+    const { saisonSelectionnee, setSaisonSelectionnee, saisonActuelle } = useSaison();
+    const saison = SAISONS[saisonActuelle];
 
   return (
     <>

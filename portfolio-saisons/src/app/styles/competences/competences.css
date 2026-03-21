@@ -1,0 +1,114 @@
+/* =====================
+   PAGE COMPÉTENCES
+   ===================== */
+
+.competences-page {
+  min-height: 100vh;
+  padding: 24px 16px 80px;
+  box-sizing: border-box;
+}
+
+.competences-contenu {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.competences-titre {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.competences-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Bloc compétence */
+
+.barre-competence-bloc {
+  background-color: rgba(255, 255, 255, 0.65);
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  backdrop-filter: blur(4px);
+  border: 2px dashed #A2D39C;
+  border-left: 4px solid #A2D39C;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.barre-competence-entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.barre-competence-nom {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.barre-competence-niveau {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.barre-competence-contexte {
+  font-size: 12px;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.barre-competence-piste {
+  position: relative;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  margin: 4px 0;
+}
+
+.barre-competence-remplissage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #F5D7E3, #FFB7C5);
+}
+
+.barre-competence-goutte {
+  position: absolute;
+  top: 50%;
+  font-size: 16px;
+  line-height: 1;
+  z-index: 2;
+}
+
+.barre-competence-fleur {
+  position: absolute;
+  top: 50%;
+  font-size: 18px;
+  line-height: 1;
+  z-index: 3;
+}
+
+.barre-competence-ressenti {
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.competences-intro {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.75;
+  text-align: center;
+  margin-bottom: 24px;
+}
