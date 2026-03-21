@@ -11,7 +11,7 @@ import CarteSaison from "./components/CarteSaison";
 import EtiquettesTechnos from "./components/EtiquettesTechnos";
 import BoutonPrincipal from "./components/BoutonPrincipal";
 import SelectionSaison from "./components/SelectionSaison";
-
+import BoutonAction from "./components/BoutonAction";
 
 const saisonAutoParDate = determinerSaisonParDate(new Date());
 
@@ -42,7 +42,12 @@ export default function Accueil() {
         </div>
       </main>
 
-      <BarreNavigation
+      <BoutonAction
+  couleurFond={saison.boutonPrincipalFond}
+  couleurTexte={saison.boutonPrincipalTexte}
+/>
+
+<BarreNavigation
   couleurActive={saison.boutonPrincipalFond}
   couleurTexte={saison.texteSecondaire}
 />

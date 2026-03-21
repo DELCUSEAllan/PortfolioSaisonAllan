@@ -265,3 +265,74 @@ nav a {
 .bouton-principal:hover {
   background-color: #8FCB81;
 }
+
+/* Bouton action + */
+
+.bouton-action-wrapper {
+  position: fixed;
+  bottom: 80px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  z-index: 50;
+}
+
+.bouton-action-principal {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.bouton-action-icone {
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.bouton-action-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.bouton-action-overlay {
+  position: fixed;
+  bottom: 60px;
+  right: 0px;
+  width: 200px;
+  height: 200px;
+  border-radius: 999px;
+  background-color: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(3px);
+  z-index: 40;
+}
+
+.bouton-action-menu {
+  position: absolute;
+  bottom: 8px;
+  right: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
