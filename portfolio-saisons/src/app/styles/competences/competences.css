@@ -17,98 +17,85 @@
 .competences-titre {
   font-size: 24px;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
   text-align: center;
+}
+
+.competences-intro {
+  font-size: 14px;
+  opacity: 0.75;
+  text-align: center;
+  margin-bottom: 24px;
+  line-height: 1.6;
 }
 
 .competences-liste {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 }
 
-/* Bloc compétence */
+/* Vignette */
 
-.barre-competence-bloc {
+.vignette-competence {
   background-color: rgba(255, 255, 255, 0.65);
   border-radius: 16px;
   padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   backdrop-filter: blur(4px);
   border: 2px dashed #A2D39C;
   border-left: 4px solid #A2D39C;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+  min-height: 160px;
+  justify-content: flex-start;
 }
 
-.barre-competence-entete {
+.vignette-competence-entete {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.barre-competence-nom {
+.vignette-competence-emoji {
+  font-size: 20px;
+}
+
+.vignette-competence-nom {
   font-size: 15px;
   font-weight: 700;
+  flex: 1;
 }
 
-.barre-competence-niveau {
-  font-size: 13px;
+.vignette-competence-niveau {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
   font-weight: 600;
-  opacity: 0.7;
 }
 
-.barre-competence-contexte {
+.vignette-competence-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.vignette-competence-item {
   font-size: 12px;
-  opacity: 0.6;
-  font-style: italic;
-}
-
-.barre-competence-piste {
-  position: relative;
-  height: 8px;
-  background-color: rgba(0, 0, 0, 0.08);
-  border-radius: 999px;
-  margin: 4px 0;
-}
-
-.barre-competence-remplissage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #F5D7E3, #FFB7C5);
-}
-
-.barre-competence-goutte {
-  position: absolute;
-  top: 50%;
-  font-size: 16px;
-  line-height: 1;
-  z-index: 2;
-}
-
-.barre-competence-fleur {
-  position: absolute;
-  top: 50%;
-  font-size: 18px;
-  line-height: 1;
-  z-index: 3;
-}
-
-.barre-competence-ressenti {
-  font-size: 13px;
   line-height: 1.5;
-  opacity: 0.8;
+  color: #000000;
 }
 
-.competences-intro {
-  font-size: 14px;
-  line-height: 1.6;
-  opacity: 0.75;
-  text-align: center;
-  margin-bottom: 24px;
+.vignette-competence-icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
 }

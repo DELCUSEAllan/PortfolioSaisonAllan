@@ -1,66 +1,114 @@
+// src/app/config/competences.js
+
 export const INTRO_COMPETENCES = "Voici les **technologies** que j'ai pu **apprendre** et **pratiquer** au fil de mes **projets** et de ma **formation**.";
+
 export const COMPETENCES = [
   {
     id: "java",
     nom: "Java",
-    niveau: 60,
-    contexte: "Cours & projets scolaires",
-    ressenti: "Bonne maîtrise de la POO, utilisé avec Docker et des API REST.",
+    niveau: "apprentissage",
+    appris: [
+      "Programmation orientée objet",
+      "Utilisation de Docker",
+      "Création et consommation d'API REST",
+    ],
   },
   {
     id: "go",
     nom: "Go",
-    niveau: 75,
-    contexte: "Cours & projets personnels",
-    ressenti: "Mon langage de prédilection, celui que j'utilise le mieux.",
+    niveau: "alaise",
+    appris: [
+      "Langage que j'utilise le mieux",
+      "Développement de projets complets",
+      "Liaison avec bases de données",
+      "Création d'interfaces graphiques avec Fyne",
+    ],
   },
   {
     id: "csharp",
     nom: "C#",
-    niveau: 55,
-    contexte: "Cours scolaires",
-    ressenti: "Utilisé pour de la POO et des interfaces WinForm.",
+    niveau: "notions",
+    appris: [
+      "Programmation orientée objet",
+      "Interfaces graphiques WinForm",
+    ],
   },
   {
     id: "sql",
     nom: "SQL",
-    niveau: 75,
-    contexte: "Cours & projets scolaires",
-    ressenti: "À l'aise avec les requêtes et la conception de bases de données.",
+    niveau: "alaise",
+    appris: [
+      "Conception de bases de données",
+      "Requêtes complexes",
+      "Utilisé dans plusieurs projets",
+    ],
   },
   {
     id: "git",
     nom: "Git",
-    niveau: 65,
-    contexte: "Utilisé quotidiennement",
-    ressenti: "Je maintiens des repos propres et utilise Git régulièrement.",
+    niveau: "alaise",
+    appris: [
+      "Gestion de versions",
+      "Maintien de repos propres",
+      "Utilisé quotidiennement",
+    ],
   },
   {
     id: "react",
     nom: "React",
-    niveau: 50,
-    contexte: "Autoapprentissage",
-    ressenti: "En cours d'apprentissage, je progresse vite.",
+    niveau: "notions",
+    appris: [
+      "Composants et props",
+      "Hooks (useState, useEffect)",
+      "Autoapprentissage",
+    ],
   },
   {
     id: "nextjs",
     nom: "Next.js",
-    niveau: 50,
-    contexte: "Autoapprentissage",
-    ressenti: "Découvert via ce projet, je monte en compétences.",
+    niveau: "notions",
+    appris: [
+      "App Router",
+      "SEO avec métadonnées",
+      "Découvert via ce portfolio",
+    ],
   },
   {
     id: "html",
     nom: "HTML",
-    niveau: 60,
-    contexte: "TechnoBoost & autoapprentissage",
-    ressenti: "Je comprends vite et m'adapte facilement.",
+    niveau: "apprentissage",
+    appris: [
+      "Balises sémantiques",
+      "Structure de pages web",
+      "Accessible et propre",
+    ],
   },
   {
     id: "css",
     nom: "CSS",
-    niveau: 60,
-    contexte: "TechnoBoost & autoapprentissage",
-    ressenti: "Je comprends vite et m'adapte facilement.",
+    niveau: "apprentissage",
+    appris: [
+      "Flexbox et Grid",
+      "CSS Modules",
+      "Animations et transitions",
+    ],
   },
 ];
+
+export const NIVEAUX = {
+  alaise: {
+    label: "À l'aise",
+    couleur: "#A2D39C",
+    texte: "#000000",
+  },
+  apprentissage: {
+    label: "En apprentissage",
+    couleur: "#F2C46D",
+    texte: "#000000",
+  },
+  notions: {
+    label: "Notions",
+    couleur: "#F5D7E3",
+    texte: "#000000",
+  },
+};
