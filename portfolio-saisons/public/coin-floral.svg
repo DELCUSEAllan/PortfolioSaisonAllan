@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <path d="M5 45 Q5 5 45 5" stroke="#A2D39C" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M5 35 Q10 20 20 15" stroke="#A2D39C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M15 45 Q20 30 30 25" stroke="#A2D39C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  ircle cx="45" cy="5" r="3" fill="#FFB7C5"/>
+  ircle cx="20" cy="15" r="2.5" fill="#FFB7C5"/>
+  ircle cx="30" cy="25" r="2.5" fill="#FFB7C5"/>
+  ircle cx="5" cy="45" r="3" fill="#A2D39C"/>
+</svg>

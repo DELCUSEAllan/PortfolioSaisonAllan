@@ -1,0 +1,165 @@
+/* =====================
+   PAGE PROJETS
+   ===================== */
+
+.projets-page {
+  min-height: 100vh;
+  padding: 24px 16px 80px;
+  box-sizing: border-box;
+}
+
+.projets-contenu {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.projets-titre {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.projets-intro {
+  font-size: 14px;
+  opacity: 0.75;
+  text-align: center;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.projets-grille {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Carte projet */
+
+.carte-projet::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 35px;
+  height: 35px;
+  background-image: url("/coin-floral.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  z-index: 2;
+}
+
+.carte-projet {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.65);
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  backdrop-filter: blur(4px);
+  border: 1.5px solid rgba(162, 211, 156, 0.4);
+  cursor: pointer;
+  overflow: visible;
+}
+
+.carte-projet::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  width: 35px;
+  height: 35px;
+  background-image: url("/coin-floral.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  transform: rotate(180deg);
+  z-index: 2;
+}
+
+.carte-projet-entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carte-projet-nom {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.carte-projet-github {
+  display: flex;
+  align-items: center;
+}
+
+.carte-projet-description {
+  font-size: 11px;
+  line-height: 1.5;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.carte-projet-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.carte-projet-label {
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+.carte-projet-texte {
+  font-size: 11px;
+  line-height: 1.4;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.carte-projet-technos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.carte-projet-techno {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  background-color: #F5D7E3;
+  color: #111827;
+  border: 1px solid #ffb7c5;
+}
+
+.carte-coin {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background-image: url("/coin-floral.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.carte-coin-haut-droit {
+  top: -8px;
+  right: -8px;
+  transform: rotate(90deg);
+}
+
+.carte-coin-bas-gauche {
+  bottom: -8px;
+  left: -8px;
+  transform: rotate(270deg);
+}
