@@ -10,11 +10,19 @@ import styles from "./page.module.css";
 import EtiquettesTechnos from "./components/EtiquettesTechnos";
 import BoutonPrincipal from "./components/BoutonPrincipal";
 import BoutonAction from "./components/BoutonAction";
-import SectionPresentation from "./components/SectionPresentation";
 import CanvasSakura from "./components/CanvasSakura";
 import { useSaison } from "./context/SaisonContext";
 
+
+import dynamic from "next/dynamic";
+
 const saisonAutoParDate = determinerSaisonParDate(new Date());
+
+
+const SectionPresentation = dynamic(
+  () => import("./components/SectionPresentation"),
+  { ssr: false }
+);
 
 export default function Accueil() {
     const { saisonSelectionnee, setSaisonSelectionnee, saisonActuelle } = useSaison();
@@ -33,12 +41,13 @@ export default function Accueil() {
         {saisonActuelle === "printemps" && (
           <>
             <Image
-              src="/arbre-sakura.png"
-              alt=""
-              width={280}
-              height={400}
-              className="sakura-arbre"
-            />
+                src="/arbre-sakura.png"
+                alt=""
+                width={280}
+                height={400}
+                className="sakura-arbre"
+                priority
+                />
             <CanvasSakura />
           </>
         )}

@@ -27,7 +27,8 @@ export default function EnTeteAccueil({ valeurSaison, onChangeSaison }) {
             width={120}
             height={120}
             className="en-tete-avatar-image"
-            />
+            priority
+        />
         </div>
 
         <div className="en-tete-textes">

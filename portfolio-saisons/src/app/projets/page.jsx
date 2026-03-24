@@ -9,6 +9,13 @@ import { PROJETS } from "../config/projets";
 import { useSaison } from "../context/SaisonContext";
 import "../styles/projets/projets.css";
 
+import dynamic from "next/dynamic";
+
+const CanvasSakura = dynamic(
+  () => import("../components/CanvasSakura"),
+  { ssr: false }
+);
+
 export default function Projets() {
   const { saisonActuelle } = useSaison();
   const saison = SAISONS[saisonActuelle];
