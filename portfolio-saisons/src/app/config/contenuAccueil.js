@@ -65,3 +65,11 @@ export const TECHNOS = [
   "CSS",
   "Git",
 ];
+
+export const CONTACT = {
+  nom: "Delcuse",
+  prenom: "Allan",
+  email: "adelcuse@outlook.fr",
+  linkedin: "https://www.linkedin.com/in/delcuseallan/",
+  github: "https://github.com/DELCUSEAllan",
+};
