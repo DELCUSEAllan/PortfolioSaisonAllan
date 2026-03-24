@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import BarreNavigation from "../components/BarreNavigation";
@@ -8,6 +7,7 @@ import { SAISONS } from "../config/couleursSaisons";
 import { CONTACT } from "../config/contenuAccueil";
 import { useSaison } from "../context/SaisonContext";
 import "../styles/contact/contact.css";
+import { useState, useRef, useEffect } from "react";
 
 function genererCaptcha() {
   const a = Math.floor(Math.random() * 9) + 1;
@@ -20,7 +20,12 @@ export default function Contact() {
   const saison = SAISONS[saisonActuelle];
   const formulaireRef = useRef(null);
 
-  const [captcha, setCaptcha] = useState(genererCaptcha());
+  const [captcha, setCaptcha] = useState({ a: 0, b: 0, reponse: 0 });
+
+    useEffect(() => {
+    setCaptcha(genererCaptcha());
+    }, []);
+
   const [reponseCaptcha, setReponseCaptcha] = useState("");
   const [statut, setStatut] = useState(null);
   const [envoi, setEnvoi] = useState(false);
@@ -39,7 +44,7 @@ export default function Contact() {
   async function handleEnvoyer(e) {
     e.preventDefault();
 
-    if (parseInt(reponseCaptcha) !== captcha.reponse) {
+    if (Number.parseInt(reponseCaptcha) !== captcha.reponse) {
       setStatut("captcha");
       return;
     }
