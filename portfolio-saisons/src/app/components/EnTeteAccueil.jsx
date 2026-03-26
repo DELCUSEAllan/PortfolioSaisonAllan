@@ -8,14 +8,15 @@ import PropTypes from "prop-types";
 EnTeteAccueil.propTypes = {
   valeurSaison: PropTypes.string,
   onChangeSaison: PropTypes.func,
+  saisonActuelle: PropTypes.string,
 };
 
-export default function EnTeteAccueil({ valeurSaison, onChangeSaison }) {
+export default function EnTeteAccueil({ valeurSaison, onChangeSaison, saisonActuelle }) {
   return (
     <header className="en-tete-accueil">
       <div className="en-tete-ligne-superieure">
         <div style={{ background: "none" }}>
-          <SelectionSaison valeur={valeurSaison} onChange={onChangeSaison} />
+          <SelectionSaison valeur={valeurSaison} onChange={onChangeSaison} saisonActuelle={saisonActuelle} />
         </div>
       </div>
 

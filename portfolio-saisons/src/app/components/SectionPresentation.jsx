@@ -7,8 +7,16 @@ import { PRESENTATION } from "../config/contenuAccueil";
 import CanvasSakura from "./CanvasSakura";
 import TexteMachineAEcrire from "./TexteMachineAEcrire";
 
+const COULEURS_LIEN = {
+  printemps: "#A2D39C",
+  ete:       "#3A9BD5",
+  automne:   "#C0622A",
+  hiver:     "#5BA4CF",
+};
+
 export default function SectionPresentation({ saisonActuelle }) {
   const dernierIndex = PRESENTATION.paragraphes.length - 1;
+  const couleurLien = COULEURS_LIEN[saisonActuelle] ?? "#A2D39C";
 
   return (
     <section className="section-presentation">
@@ -38,6 +46,7 @@ export default function SectionPresentation({ saisonActuelle }) {
                 <Link
                   href={PRESENTATION.lienContact.href}
                   className="lien-contact"
+                  style={{ color: couleurLien }}
                 >
                   {PRESENTATION.lienContact.texte}
                 </Link>

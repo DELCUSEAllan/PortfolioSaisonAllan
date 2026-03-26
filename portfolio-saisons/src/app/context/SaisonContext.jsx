@@ -14,12 +14,12 @@ const saisonAutoParDate = determinerSaisonParDate(new Date());
 const SaisonContext = createContext(null);
 
 function subscribe(callback) {
-  window.addEventListener("storage", callback);
-  return () => window.removeEventListener("storage", callback);
+  globalThis.addEventListener("storage", callback);
+  return () => globalThis.removeEventListener("storage", callback);
 }
 
 function getSnapshot() {
-  return localStorage.getItem("saisonChoisie") || "auto";
+  return globalThis.localStorage?.getItem("saisonChoisie") || "auto";
 }
 
 function getServerSnapshot() {

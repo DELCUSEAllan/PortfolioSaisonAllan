@@ -60,13 +60,18 @@ export default function Accueil() {
           <EnTeteAccueil
             valeurSaison={saisonSelectionnee}
             onChangeSaison={setSaisonSelectionnee}
-          />
+            saisonActuelle={saisonActuelle}
+            />
 
           <SectionPresentation saisonActuelle={saisonActuelle} />
 
-          <EtiquettesTechnos />
+          <EtiquettesTechnos saisonActuelle={saisonActuelle} />
 
-          <BoutonPrincipal texte="Voir mes projets" />
+          <BoutonPrincipal
+            texte="Voir mes projets"
+            couleurFond={saison.boutonPrincipalFond}
+            couleurTexte={saison.boutonPrincipalTexte}
+            />
         </div>
       </main>
 

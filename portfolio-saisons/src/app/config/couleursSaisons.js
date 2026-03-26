@@ -12,17 +12,17 @@ export const SAISONS = {
     badgeTexte: "#111827",
   },
   ete: {
-    nom: "Été",
-    fondPage: "#FDF6EC",
-    textePrincipal: "#2C2420",
-    texteSecondaire: "#7A6A60",
-    boutonPrincipalFond: "#3A9BD5",
-    boutonPrincipalTexte: "#FFFFFF",
-    boutonSecondaireFond: "#F4845F",
-    boutonSecondaireTexte: "#FFFFFF",
-    badgeFond: "#F2C46D",
-    badgeTexte: "#2C2420",
-  },
+  nom: "Été",
+  fondPage: "#FDF6EC",
+  textePrincipal: "#2C2420",
+  texteSecondaire: "#7A6A60",
+  boutonPrincipalFond: "#3A9BD5",    // ✅ bleu pour BoutonAction
+  boutonPrincipalTexte: "#FFFFFF",
+  boutonSecondaireFond: "#F2C46D",   // ✅ jaune pour les items du menu
+  boutonSecondaireTexte: "#2C2420",  // ← texte foncé sur jaune
+  badgeFond: "#F2C46D",
+  badgeTexte: "#2C2420",
+},
   automne: {
     nom: "Automne",
     fondPage: "#FAF3E8",
