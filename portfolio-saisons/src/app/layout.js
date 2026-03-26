@@ -29,11 +29,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
       <head>
         <link rel="preload" as="image" href="/arbre-sakura.png"/>
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <SaisonProvider>
           {children}
         </SaisonProvider>

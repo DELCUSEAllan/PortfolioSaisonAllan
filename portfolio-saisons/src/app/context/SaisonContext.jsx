@@ -1,21 +1,57 @@
 "use client";
 
-import { createContext, useContext, useState, useMemo } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useMemo,
+  useSyncExternalStore,
+} from "react";
 import { determinerSaisonParDate } from "../utils/saisons";
 import PropTypes from "prop-types";
 
 const saisonAutoParDate = determinerSaisonParDate(new Date());
 const SaisonContext = createContext(null);
 
-export function SaisonProvider({ children }) {
-  const [saisonSelectionnee, setSaisonSelectionnee] = useState("auto");
-  const saisonActuelle = saisonSelectionnee === "auto" ? saisonAutoParDate : saisonSelectionnee;
+function subscribe(callback) {
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+}
 
-  const valeur = useMemo(() => ({
-    saisonSelectionnee,
-    setSaisonSelectionnee,
-    saisonActuelle,
-  }), [saisonSelectionnee, saisonActuelle]);
+function getSnapshot() {
+  return localStorage.getItem("saisonChoisie") || "auto";
+}
+
+function getServerSnapshot() {
+  return "auto";
+}
+
+export function SaisonProvider({ children }) {
+  const saisonStockee = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot
+  );
+
+  const [override, setOverride] = useState(null);
+  const saisonSelectionnee = override ?? saisonStockee;
+
+  function changerSaison(nouvelleSaison) {
+    setOverride(nouvelleSaison);
+    localStorage.setItem("saisonChoisie", nouvelleSaison);
+  }
+
+  const saisonActuelle =
+    saisonSelectionnee === "auto" ? saisonAutoParDate : saisonSelectionnee;
+
+  const valeur = useMemo(
+    () => ({
+      saisonSelectionnee,
+      setSaisonSelectionnee: changerSaison,
+      saisonActuelle,
+    }),
+    [saisonSelectionnee, saisonActuelle]
+  );
 
   return (
     <SaisonContext.Provider value={valeur}>
