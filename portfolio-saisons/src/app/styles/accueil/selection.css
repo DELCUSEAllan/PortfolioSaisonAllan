@@ -1,4 +1,5 @@
 /* stylelint-disable color-no-invalid-hex, color-contrast */
+/* stylelint-disable-next-line color-contrast */
 
 .select-saison-wrapper {
   position: relative;
@@ -58,7 +59,7 @@
   border-radius: 10px;
   font-size: 12px;
   cursor: pointer;
-  color: #111827; /* stylelint-disable-next-line color-contrast */
+  color: #111827;
   background: none;
   border: none;
   width: 100%;
@@ -71,6 +72,6 @@
 
 .select-saison-option-active {
   font-weight: 600;
-  color: #111827; /* ← plus foncé */
+  color: #111827;
   background-color: rgba(0, 0, 0, 0.08);
 }

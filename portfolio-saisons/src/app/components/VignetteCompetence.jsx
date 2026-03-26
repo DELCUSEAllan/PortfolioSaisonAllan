@@ -1,5 +1,3 @@
-// src/app/components/VignetteCompetence.jsx
-
 "use client";
 
 import { motion, useInView } from "framer-motion";
@@ -21,15 +19,27 @@ const ICONES = {
   css: <FaCss3Alt size={24} />,
 };
 
-export default function VignetteCompetence({ competence, index }) {
+const DECORATIONS = {
+  printemps: { emoji: "🌱", bordure: "#A2D39C" },
+  ete:       { emoji: "🛟", bordure: "#3A9BD5" },
+  automne:   { emoji: "🍂", bordure: "#C0622A" },
+  hiver:     { emoji: "❄️", bordure: "#5BA4CF" },
+};
+
+export default function VignetteCompetence({ competence, index, saisonActuelle }) {
   const ref = useRef(null);
   const estVisible = useInView(ref, { once: true, margin: "-30px" });
   const niveau = NIVEAUX[competence.niveau];
+  const deco = DECORATIONS[saisonActuelle] ?? DECORATIONS.printemps;
 
   return (
     <motion.div
       ref={ref}
       className="vignette-competence"
+      style={{
+        border: `2px dashed ${deco.bordure}`,
+        borderLeft: `4px solid ${deco.bordure}`,
+      }}
       initial={{ opacity: 0, scale: 0.8, y: 20 }}
       animate={estVisible
         ? { opacity: 1, scale: 1, y: 0 }
@@ -62,7 +72,7 @@ export default function VignetteCompetence({ competence, index }) {
       <ul className="vignette-competence-liste">
         {competence.appris.map((item) => (
           <li key={item} className="vignette-competence-item">
-            🌱 {item}
+            {deco.emoji} {item}
           </li>
         ))}
       </ul>
@@ -78,4 +88,5 @@ VignetteCompetence.propTypes = {
     appris: PropTypes.arrayOf(PropTypes.string),
   }),
   index: PropTypes.number,
+  saisonActuelle: PropTypes.string,
 };

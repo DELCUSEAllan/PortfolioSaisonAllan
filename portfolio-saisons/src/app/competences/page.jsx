@@ -32,12 +32,13 @@ export default function Competences() {
 
           <div className="competences-liste">
             {COMPETENCES.map((competence, index) => (
-              <VignetteCompetence
-                key={competence.id}
-                competence={competence}
-                index={index}
-              />
-            ))}
+                <VignetteCompetence
+                    key={competence.id}
+                    competence={competence}
+                    index={index}
+                    saisonActuelle={saisonActuelle}
+                />
+                ))}
           </div>
         </div>
       </main>
