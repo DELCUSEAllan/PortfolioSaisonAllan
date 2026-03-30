@@ -23,7 +23,7 @@ export default function EnTeteAccueil({ valeurSaison, onChangeSaison, saisonActu
       <div className="en-tete-contenu">
         <div className="en-tete-avatar">
         <Image
-            src="/avatar.jpeg"
+            src="/avatar.webp"
             alt={`Photo de profil de ${IDENTITE.prenom}`}
             width={120}
             height={120}

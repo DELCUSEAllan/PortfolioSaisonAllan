@@ -5,6 +5,7 @@
 import { useEffect, useRef } from "react";
 
 const NOMBRE_PETALES = 5;
+const COULEURS_PETALES = ["#FFD6E0", "#FFB7C5", "#FF8FA3"];
 
 function creerPetale(canvas) {
   return {
@@ -18,6 +19,7 @@ function creerPetale(canvas) {
     opacite: 0.6 + Math.random() * 0.4,
     oscillation: Math.random() * Math.PI * 2,
     vitesseOscillation: 0.02 + Math.random() * 0.02,
+    couleur: COULEURS_PETALES[Math.floor(Math.random() * COULEURS_PETALES.length)],
   };
 }
 
@@ -30,14 +32,7 @@ function dessinerPetale(ctx, petale) {
   // Forme du pétale
   ctx.beginPath();
   ctx.ellipse(0, 0, petale.taille, petale.taille * 0.6, 0, 0, Math.PI * 2);
-
-  // Dégradé rose
-  const degrade = ctx.createRadialGradient(0, 0, 0, 0, 0, petale.taille);
-  degrade.addColorStop(0, "#FFD6E0");
-  degrade.addColorStop(0.5, "#FFB7C5");
-  degrade.addColorStop(1, "#FF8FA3");
-
-  ctx.fillStyle = degrade;
+  ctx.fillStyle = petale.couleur;
   ctx.fill();
 
   // Nervure centrale
@@ -81,7 +76,7 @@ export default function CanvasSakura() {
         // Si le pétale sort de l'écran, on le recrée en haut
         if (petale.y > canvas.height || petale.x > canvas.width + 20) {
           const nouveau = creerPetale(canvas);
-          nouveau.x = Math.random() * canvas.width * 0.3; // repart de la gauche
+          nouveau.x = Math.random() * canvas.width * 0.3;
           nouveau.y = -20;
           Object.assign(petale, nouveau);
         }
@@ -98,11 +93,5 @@ export default function CanvasSakura() {
     return () => cancelAnimationFrame(animationId);
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="canvas-sakura"
-    />
-  );
+  return <canvas ref={canvasRef} className="canvas-sakura" />;
 }
-

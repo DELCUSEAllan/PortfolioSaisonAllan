@@ -2,20 +2,20 @@
 
 import React from "react";
 import Image from "next/image";
-import BarreNavigation from "./components/BarreNavigation";
 import EnTeteAccueil from "./components/EnTeteAccueil";
 import { SAISONS } from "./config/couleursSaisons";
 import { determinerSaisonParDate } from "./utils/saisons";
 import styles from "./page.module.css";
 import EtiquettesTechnos from "./components/EtiquettesTechnos";
 import BoutonPrincipal from "./components/BoutonPrincipal";
-import BoutonAction from "./components/BoutonAction";
-import CanvasSakura from "./components/CanvasSakura";
-import CanvasEte from "./components/CanvasEte";
 import { useSaison } from "./context/SaisonContext";
 import dynamic from "next/dynamic";
-import CanvasAutomne from "./components/CanvasAutomne";
-import Head from "next/head";
+
+const CanvasSakura = dynamic(() => import("./components/CanvasSakura"), { ssr: false });
+const CanvasAutomne = dynamic(() => import("./components/CanvasAutomne"), { ssr: false });
+const CanvasEte = dynamic(() => import("./components/CanvasEte"), { ssr: false });
+const BarreNavigation = dynamic(() => import("./components/BarreNavigation"), { ssr: false });
+const BoutonAction = dynamic(() => import("./components/BoutonAction"), { ssr: false });
 
 const saisonAutoParDate = determinerSaisonParDate(new Date());
 
