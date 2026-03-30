@@ -47,4 +47,28 @@ export const SAISONS = {
     badgeFond: "#2E4A6A",
     badgeTexte: "#F0F4F8",
   },
+
+};
+
+export const COULEURS_ICONES = {
+  printemps: [
+    { fond: "#A2D39C", texte: "#111827" }, // email
+    { fond: "#F5D7E3", texte: "#111827" }, // linkedin
+    { fond: "#FFFA9C", texte: "#111827" }, // github
+  ],
+  ete: [
+    { fond: "#3A9BD5", texte: "#FFFFFF" },
+    { fond: "#3A9BD5", texte: "#FFFFFF" },
+    { fond: "#3A9BD5", texte: "#FFFFFF" },
+  ],
+  automne: [
+    { fond: "#C0622A", texte: "#FFFFFF" },
+    { fond: "#C0622A", texte: "#FFFFFF" },
+    { fond: "#C0622A", texte: "#FFFFFF" },
+  ],
+  hiver: [
+    { fond: "#5BA4CF", texte: "#FFFFFF" },
+    { fond: "#5BA4CF", texte: "#FFFFFF" },
+    { fond: "#5BA4CF", texte: "#FFFFFF" },
+  ],
 };

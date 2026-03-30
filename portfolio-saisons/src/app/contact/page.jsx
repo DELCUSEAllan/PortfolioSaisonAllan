@@ -3,7 +3,7 @@
 import emailjs from "@emailjs/browser";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import BarreNavigation from "../components/BarreNavigation";
-import { SAISONS } from "../config/couleursSaisons";
+import { SAISONS, COULEURS_ICONES } from "../config/couleursSaisons";
 import { CONTACT } from "../config/contenuAccueil";
 import { useSaison } from "../context/SaisonContext";
 import "../styles/contact/contact.css";
@@ -18,13 +18,14 @@ function genererCaptcha() {
 export default function Contact() {
   const { saisonActuelle } = useSaison();
   const saison = SAISONS[saisonActuelle];
+  const icones = COULEURS_ICONES[saisonActuelle] ?? COULEURS_ICONES.printemps;
   const formulaireRef = useRef(null);
 
   const [captcha, setCaptcha] = useState({ a: 0, b: 0, reponse: 0 });
 
-    useEffect(() => {
+  useEffect(() => {
     setCaptcha(genererCaptcha());
-    }, []);
+  }, []);
 
   const [reponseCaptcha, setReponseCaptcha] = useState("");
   const [statut, setStatut] = useState(null);
@@ -89,10 +90,7 @@ export default function Contact() {
             <a
               href={`mailto:${CONTACT.email}`}
               className="contact-icone"
-              style={{
-                backgroundColor: saison.boutonPrincipalFond,
-                color: saison.boutonPrincipalTexte,
-              }}
+              style={{ backgroundColor: icones[0].fond, color: icones[0].texte }}
               aria-label="Envoyer un email"
             >
               <FaEnvelope size={22} />
@@ -102,10 +100,7 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className="contact-icone"
-              style={{
-                backgroundColor: saison.boutonSecondaireFond,
-                color: saison.boutonSecondaireTexte,
-              }}
+              style={{ backgroundColor: icones[1].fond, color: icones[1].texte }}
               aria-label="Voir le profil LinkedIn"
             >
               <FaLinkedin size={22} />
@@ -115,10 +110,7 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               className="contact-icone"
-              style={{
-                backgroundColor: saison.badgeFond,
-                color: saison.badgeTexte,
-              }}
+              style={{ backgroundColor: icones[2].fond, color: icones[2].texte }}
               aria-label="Voir le profil GitHub"
             >
               <FaGithub size={22} />
