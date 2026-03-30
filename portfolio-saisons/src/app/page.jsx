@@ -14,6 +14,8 @@ import CanvasSakura from "./components/CanvasSakura";
 import CanvasEte from "./components/CanvasEte";
 import { useSaison } from "./context/SaisonContext";
 import dynamic from "next/dynamic";
+import CanvasAutomne from "./components/CanvasAutomne";
+import Head from "next/head";
 
 const saisonAutoParDate = determinerSaisonParDate(new Date());
 
@@ -55,6 +57,21 @@ export default function Accueil() {
         )}
 
         {saisonActuelle === "ete" && <CanvasEte />}
+        {saisonActuelle === "automne" && (
+            <>
+                <Image
+                src="/arbre-automne.webp"
+                alt=""
+                width={200}
+                height={200}
+                style={{ width: "auto" }}
+                className="sakura-arbre"
+                priority
+                quality={75}
+                />
+                <CanvasAutomne />
+            </>
+            )}
 
         <div className={styles.contenu}>
           <EnTeteAccueil

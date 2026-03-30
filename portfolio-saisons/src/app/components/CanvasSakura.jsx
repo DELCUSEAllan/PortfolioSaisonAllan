@@ -4,7 +4,7 @@
 
 import { useEffect, useRef } from "react";
 
-const NOMBRE_PETALES = 10;
+const NOMBRE_PETALES = 5;
 
 function creerPetale(canvas) {
   return {

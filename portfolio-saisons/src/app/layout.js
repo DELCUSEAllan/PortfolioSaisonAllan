@@ -1,11 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-
 import PropTypes from "prop-types";
-
 import { SaisonProvider } from "./context/SaisonContext";
-
 
 RootLayout.propTypes = {
   children: PropTypes.node,
