@@ -43,6 +43,7 @@ export default function Projets() {
                 index={index}
                 couleurPrincipal={saison.boutonPrincipalFond}
                 couleurTexte={saison.boutonPrincipalTexte}
+                saisonActuelle={saisonActuelle}
               />
             ))}
           </div>

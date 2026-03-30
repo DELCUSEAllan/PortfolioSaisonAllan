@@ -1,12 +1,19 @@
-// src/app/components/CarteProjet.jsx
-
 "use client";
 
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { FaGithub } from "react-icons/fa";
 
-export default function CarteProjet({ projet, index, couleurPrincipal, couleurTexte }) {
+const STYLES_SAISON = {
+  printemps: { filtreCoin: "none",                                          vignetteFond: "#F5D7E3", vignetteTexte: "#111827" },
+  ete:       { filtreCoin: "sepia(1) saturate(3) hue-rotate(180deg)",       vignetteFond: "#F2C46D", vignetteTexte: "#2C2420" },
+  automne:   { filtreCoin: "sepia(1) saturate(3) hue-rotate(20deg)",        vignetteFond: "#D4A843", vignetteTexte: "#2A1F14" },
+  hiver:     { filtreCoin: "sepia(1) saturate(2) hue-rotate(190deg) brightness(1.4)", vignetteFond: "#E8F0F8", vignetteTexte: "#1E2A3A" },
+};
+
+export default function CarteProjet({ projet, index, couleurPrincipal, couleurTexte, saisonActuelle }) {
+  const styles = STYLES_SAISON[saisonActuelle] ?? STYLES_SAISON.printemps;
+
   return (
     <motion.div
       className="carte-projet"
@@ -19,8 +26,10 @@ export default function CarteProjet({ projet, index, couleurPrincipal, couleurTe
       }}
       whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
     >
-      <div className="carte-coin carte-coin-haut-droit" />
-      <div className="carte-coin carte-coin-bas-gauche" />
+        <div className="carte-coin carte-coin-haut-droit" style={{ filter: styles.filtreCoin }} />
+        <div className="carte-coin carte-coin-bas-gauche" style={{ filter: styles.filtreCoin }} />
+        <div className="carte-coin carte-coin-haut-gauche" style={{ filter: styles.filtreCoin }} />
+        <div className="carte-coin carte-coin-bas-droit" style={{ filter: styles.filtreCoin }} />
 
       <div className="carte-projet-entete">
         <h2 className="carte-projet-nom">{projet.nom}</h2>
@@ -54,6 +63,11 @@ export default function CarteProjet({ projet, index, couleurPrincipal, couleurTe
           <span
             key={techno}
             className="carte-projet-techno"
+            style={{
+              backgroundColor: styles.vignetteFond,
+              color: styles.vignetteTexte,
+              border: `1px solid ${couleurPrincipal}`,
+            }}
           >
             {techno}
           </span>
@@ -76,4 +90,5 @@ CarteProjet.propTypes = {
   index: PropTypes.number,
   couleurPrincipal: PropTypes.string,
   couleurTexte: PropTypes.string,
+  saisonActuelle: PropTypes.string,
 };
