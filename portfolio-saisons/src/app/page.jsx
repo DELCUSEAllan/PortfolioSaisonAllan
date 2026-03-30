@@ -2,9 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
+import CanvasHiver from "./components/CanvasHiver";
 import EnTeteAccueil from "./components/EnTeteAccueil";
 import { SAISONS } from "./config/couleursSaisons";
-import { determinerSaisonParDate } from "./utils/saisons";
 import styles from "./page.module.css";
 import EtiquettesTechnos from "./components/EtiquettesTechnos";
 import BoutonPrincipal from "./components/BoutonPrincipal";
@@ -16,8 +16,6 @@ const CanvasAutomne = dynamic(() => import("./components/CanvasAutomne"), { ssr:
 const CanvasEte = dynamic(() => import("./components/CanvasEte"), { ssr: false });
 const BarreNavigation = dynamic(() => import("./components/BarreNavigation"), { ssr: false });
 const BoutonAction = dynamic(() => import("./components/BoutonAction"), { ssr: false });
-
-const saisonAutoParDate = determinerSaisonParDate(new Date());
 
 const SectionPresentation = dynamic(
   () => import("./components/SectionPresentation"),
@@ -57,28 +55,31 @@ export default function Accueil() {
         )}
 
         {saisonActuelle === "ete" && <CanvasEte />}
+
         {saisonActuelle === "automne" && (
-            <>
-                <Image
-                src="/arbre-automne.webp"
-                alt=""
-                width={200}
-                height={200}
-                style={{ width: "auto" }}
-                className="sakura-arbre"
-                priority
-                quality={75}
-                />
-                <CanvasAutomne />
-            </>
-            )}
+          <>
+            <Image
+              src="/arbre-automne.webp"
+              alt=""
+              width={200}
+              height={200}
+              style={{ width: "auto" }}
+              className="sakura-arbre"
+              priority
+              quality={75}
+            />
+            <CanvasAutomne />
+          </>
+        )}
+
+        {saisonActuelle === "hiver" && <CanvasHiver />}
 
         <div className={styles.contenu}>
           <EnTeteAccueil
             valeurSaison={saisonSelectionnee}
             onChangeSaison={setSaisonSelectionnee}
             saisonActuelle={saisonActuelle}
-            />
+          />
 
           <SectionPresentation saisonActuelle={saisonActuelle} />
 
@@ -88,7 +89,7 @@ export default function Accueil() {
             texte="Voir mes projets"
             couleurFond={saison.boutonPrincipalFond}
             couleurTexte={saison.boutonPrincipalTexte}
-            />
+          />
         </div>
       </main>
 

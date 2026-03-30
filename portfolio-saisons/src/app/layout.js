@@ -28,6 +28,8 @@ export default function RootLayout({ children }) {
     <html lang="fr" suppressHydrationWarning>
       <head>
         <link rel="preload" as="image" href="/arbre-sakura.png"/>
+        <link rel="preload" as="image" href="/arbre-automne.webp"/>
+        <link rel="preload" as="image" href="/nuages.webp"/>
       </head>
       <body suppressHydrationWarning>
         <SaisonProvider>
