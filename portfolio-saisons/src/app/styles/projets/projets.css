@@ -1,7 +1,3 @@
-/* =====================
-   PAGE PROJETS
-   ===================== */
-
 .projets-page {
   min-height: 100vh;
   padding: 24px 16px 80px;
@@ -45,7 +41,7 @@
   flex-direction: column;
   gap: 8px;
   backdrop-filter: blur(4px);
-  border: 1.5px solid rgba(162, 211, 156, 0.4);
+  border: none;
   cursor: pointer;
   overflow: visible;
 }

@@ -1,5 +1,3 @@
-// src/app/competences/page.jsx
-
 "use client";
 
 import BarreNavigation from "../components/BarreNavigation";
@@ -10,16 +8,24 @@ import { COMPETENCES, INTRO_COMPETENCES } from "../config/competences";
 import { useSaison } from "../context/SaisonContext";
 import "../styles/competences/competences.css";
 
+function calculerBackground(saisonActuelle, saison) {
+  if (saisonActuelle === "nuit") {
+    return "linear-gradient(180deg, #0D1117 0%, #161B22 50%, #0D1117 100%)";
+  }
+  return `linear-gradient(180deg, ${saison.badgeFond} 0%, ${saison.fondPage} 40%, ${saison.boutonSecondaireFond} 100%)`;
+}
+
 export default function Competences() {
   const { saisonActuelle } = useSaison();
   const saison = SAISONS[saisonActuelle];
+  const background = calculerBackground(saisonActuelle, saison);
 
   return (
     <>
       <main
         className="competences-page"
         style={{
-          background: `linear-gradient(180deg, ${saison.badgeFond} 0%, ${saison.fondPage} 40%, ${saison.boutonSecondaireFond} 100%)`,
+          background,
           color: saison.textePrincipal,
         }}
       >
@@ -32,13 +38,13 @@ export default function Competences() {
 
           <div className="competences-liste">
             {COMPETENCES.map((competence, index) => (
-                <VignetteCompetence
-                    key={competence.id}
-                    competence={competence}
-                    index={index}
-                    saisonActuelle={saisonActuelle}
-                />
-                ))}
+              <VignetteCompetence
+                key={competence.id}
+                competence={competence}
+                index={index}
+                saisonActuelle={saisonActuelle}
+              />
+            ))}
           </div>
         </div>
       </main>

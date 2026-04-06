@@ -24,6 +24,7 @@ const DECORATIONS = {
   ete:       { emoji: "🛟", bordure: "#3A9BD5" },
   automne:   { emoji: "🍂", bordure: "#C0622A" },
   hiver:     { emoji: "❄️", bordure: "#5BA4CF" },
+  nuit:      { emoji: "🪐", bordure: "#58A6FF" },
 };
 
 export default function VignetteCompetence({ competence, index, saisonActuelle }) {

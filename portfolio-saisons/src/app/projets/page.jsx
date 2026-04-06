@@ -1,5 +1,3 @@
-// src/app/projets/page.jsx
-
 "use client";
 
 import BarreNavigation from "../components/BarreNavigation";
@@ -8,7 +6,6 @@ import { SAISONS } from "../config/couleursSaisons";
 import { PROJETS } from "../config/projets";
 import { useSaison } from "../context/SaisonContext";
 import "../styles/projets/projets.css";
-
 import dynamic from "next/dynamic";
 
 const CanvasSakura = dynamic(
@@ -16,16 +13,24 @@ const CanvasSakura = dynamic(
   { ssr: false }
 );
 
+function calculerBackground(saisonActuelle, saison) {
+  if (saisonActuelle === "nuit") {
+    return "linear-gradient(180deg, #0D1117 0%, #161B22 50%, #0D1117 100%)";
+  }
+  return `linear-gradient(180deg, ${saison.badgeFond} 0%, ${saison.fondPage} 40%, ${saison.boutonSecondaireFond} 100%)`;
+}
+
 export default function Projets() {
   const { saisonActuelle } = useSaison();
   const saison = SAISONS[saisonActuelle];
+  const background = calculerBackground(saisonActuelle, saison);
 
   return (
     <>
       <main
         className="projets-page"
         style={{
-          background: `linear-gradient(180deg, ${saison.badgeFond} 0%, ${saison.fondPage} 40%, ${saison.boutonSecondaireFond} 100%)`,
+          background,
           color: saison.textePrincipal,
         }}
       >

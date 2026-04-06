@@ -164,6 +164,7 @@ export default function Contact() {
               </label>
               <input
                 type="number"
+                placeholder="Ex : 14"
                 className="contact-champ contact-captcha-input"
                 value={reponseCaptcha}
                 onChange={(e) => setReponseCaptcha(e.target.value)}
