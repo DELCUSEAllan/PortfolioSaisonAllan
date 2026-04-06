@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { IDENTITE } from "../config/contenuAccueil";
 import SelectionSaison from "./SelectionSaison";
-
-
 import PropTypes from "prop-types";
 
 EnTeteAccueil.propTypes = {
@@ -16,20 +14,24 @@ export default function EnTeteAccueil({ valeurSaison, onChangeSaison, saisonActu
     <header className="en-tete-accueil">
       <div className="en-tete-ligne-superieure">
         <div style={{ background: "none" }}>
-          <SelectionSaison valeur={valeurSaison} onChange={onChangeSaison} saisonActuelle={saisonActuelle} />
+          <SelectionSaison
+            valeur={valeurSaison}
+            onChange={onChangeSaison}
+            saisonActuelle={saisonActuelle}
+          />
         </div>
       </div>
 
       <div className="en-tete-contenu">
         <div className="en-tete-avatar">
-        <Image
+          <Image
             src="/avatar.webp"
             alt={`Photo de profil de ${IDENTITE.prenom}`}
             width={120}
             height={120}
             className="en-tete-avatar-image"
             priority
-        />
+          />
         </div>
 
         <div className="en-tete-textes">

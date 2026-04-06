@@ -12,17 +12,17 @@ export const SAISONS = {
     badgeTexte: "#111827",
   },
   ete: {
-  nom: "Été",
-  fondPage: "#FDF6EC",
-  textePrincipal: "#2C2420",
-  texteSecondaire: "#7A6A60",
-  boutonPrincipalFond: "#3A9BD5",    // ✅ bleu pour BoutonAction
-  boutonPrincipalTexte: "#FFFFFF",
-  boutonSecondaireFond: "#F2C46D",   // ✅ jaune pour les items du menu
-  boutonSecondaireTexte: "#2C2420",  // ← texte foncé sur jaune
-  badgeFond: "#F2C46D",
-  badgeTexte: "#2C2420",
-},
+    nom: "Été",
+    fondPage: "#FDF6EC",
+    textePrincipal: "#2C2420",
+    texteSecondaire: "#7A6A60",
+    boutonPrincipalFond: "#3A9BD5",
+    boutonPrincipalTexte: "#FFFFFF",
+    boutonSecondaireFond: "#F2C46D",
+    boutonSecondaireTexte: "#2C2420",
+    badgeFond: "#F2C46D",
+    badgeTexte: "#2C2420",
+  },
   automne: {
     nom: "Automne",
     fondPage: "#FAF3E8",
@@ -47,14 +47,25 @@ export const SAISONS = {
     badgeFond: "#2E4A6A",
     badgeTexte: "#F0F4F8",
   },
-
+  nuit: {
+    nom: "Nuit",
+    fondPage: "#0D1117",
+    textePrincipal: "#E6EDF3",
+    texteSecondaire: "#8B949E",
+    boutonPrincipalFond: "#58A6FF",
+    boutonPrincipalTexte: "#0D1117",
+    boutonSecondaireFond: "#1F2937",
+    boutonSecondaireTexte: "#E6EDF3",
+    badgeFond: "#161B22",
+    badgeTexte: "#E6EDF3",
+  },
 };
 
 export const COULEURS_ICONES = {
   printemps: [
-    { fond: "#A2D39C", texte: "#111827" }, // email
-    { fond: "#F5D7E3", texte: "#111827" }, // linkedin
-    { fond: "#FFFA9C", texte: "#111827" }, // github
+    { fond: "#A2D39C", texte: "#111827" },
+    { fond: "#F5D7E3", texte: "#111827" },
+    { fond: "#FFFA9C", texte: "#111827" },
   ],
   ete: [
     { fond: "#3A9BD5", texte: "#FFFFFF" },
@@ -70,5 +81,10 @@ export const COULEURS_ICONES = {
     { fond: "#5BA4CF", texte: "#FFFFFF" },
     { fond: "#5BA4CF", texte: "#FFFFFF" },
     { fond: "#5BA4CF", texte: "#FFFFFF" },
+  ],
+  nuit: [
+    { fond: "#58A6FF", texte: "#0D1117" },
+    { fond: "#58A6FF", texte: "#0D1117" },
+    { fond: "#58A6FF", texte: "#0D1117" },
   ],
 };

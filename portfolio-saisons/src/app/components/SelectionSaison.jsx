@@ -9,6 +9,7 @@ const OPTIONS_SAISON = [
   { valeur: "ete",       label: "Été",         emoji: "☀️" },
   { valeur: "automne",   label: "Automne",     emoji: "🍂" },
   { valeur: "hiver",     label: "Hiver",       emoji: "❄️" },
+  { valeur: "nuit",      label: "Nuit",        emoji: "🌙" },
 ];
 
 const COULEURS_BOUTON = {
@@ -16,17 +17,18 @@ const COULEURS_BOUTON = {
   ete:       { fond: "#F4845F", texte: "#FFFFFF" },
   automne:   { fond: "#C0622A", texte: "#FFFFFF" },
   hiver:     { fond: "#5BA4CF", texte: "#FFFFFF" },
+  nuit:      { fond: "#1F2937", texte: "#E6EDF3" },
 };
 
 const COULEURS_DROPDOWN = {
   printemps: "#F5D7E3",
-  ete:       "#F4845F", // ← même orange que le bouton
+  ete:       "#F4845F",
   automne:   "#FAF3E8",
   hiver:     "#F0F4F8",
+  nuit:      "#161B22",
 };
 
 export default function SelectionSaison({ valeur, onChange, compact, saisonActuelle }) {
-  console.log("saisonActuelle reçue :", saisonActuelle);
   const [ouvert, setOuvert] = useState(false);
 
   const optionActive = OPTIONS_SAISON.find((o) => o.valeur === valeur);
@@ -73,11 +75,11 @@ export default function SelectionSaison({ valeur, onChange, compact, saisonActue
 
       {ouvert && (
         <ul
-            className="select-saison-dropdown"
-            style={{ backgroundColor: COULEURS_DROPDOWN[saisonActuelle] ?? "#F5D7E3" }}
-            >
-            {renderOptions()}
-            </ul>
+          className="select-saison-dropdown"
+          style={{ backgroundColor: COULEURS_DROPDOWN[saisonActuelle] ?? "#F5D7E3" }}
+        >
+          {renderOptions()}
+        </ul>
       )}
     </div>
   );

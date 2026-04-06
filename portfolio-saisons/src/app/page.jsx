@@ -16,19 +16,30 @@ const CanvasAutomne = dynamic(() => import("./components/CanvasAutomne"), { ssr:
 const CanvasEte = dynamic(() => import("./components/CanvasEte"), { ssr: false });
 const BarreNavigation = dynamic(() => import("./components/BarreNavigation"), { ssr: false });
 const BoutonAction = dynamic(() => import("./components/BoutonAction"), { ssr: false });
+const CanvasNuit = dynamic(() => import("./components/CanvasNuit"), {
+  ssr: false,
+  loading: () => null,
+});
 
 const SectionPresentation = dynamic(
   () => import("./components/SectionPresentation"),
   { ssr: false }
 );
 
+function calculerBackground(saisonActuelle, saison) {
+  if (saisonActuelle === "ete") {
+    return "linear-gradient(180deg, #3A9BD5 0%, #F2C46D 30%, #FDF6EC 65%, #F4845F 100%)";
+  }
+  if (saisonActuelle === "nuit") {
+    return "linear-gradient(180deg, #0D1117 0%, #161B22 50%, #0D1117 100%)";
+  }
+  return `linear-gradient(180deg, ${saison.badgeFond} 0%, ${saison.fondPage} 40%, ${saison.boutonSecondaireFond} 100%)`;
+}
+
 export default function Accueil() {
   const { saisonSelectionnee, setSaisonSelectionnee, saisonActuelle } = useSaison();
   const saison = SAISONS[saisonActuelle];
-
-  const background = saisonActuelle === "ete"
-    ? "linear-gradient(180deg, #3A9BD5 0%, #F2C46D 30%, #FDF6EC 65%, #F4845F 100%)"
-    : `linear-gradient(180deg, ${saison.badgeFond} 0%, ${saison.fondPage} 40%, ${saison.boutonSecondaireFond} 100%)`;
+  const background = calculerBackground(saisonActuelle, saison);
 
   return (
     <>
@@ -73,6 +84,8 @@ export default function Accueil() {
         )}
 
         {saisonActuelle === "hiver" && <CanvasHiver />}
+
+        {saisonActuelle === "nuit" && <CanvasNuit />}
 
         <div className={styles.contenu}>
           <EnTeteAccueil
