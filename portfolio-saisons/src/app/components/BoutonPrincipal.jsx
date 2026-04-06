@@ -16,6 +16,7 @@ export default function BoutonPrincipal({ texte, couleurFond, couleurTexte }) {
       style={{
         backgroundColor: couleurFond,
         color: couleurTexte,
+        boxShadow: `0 10px 20px ${couleurFond}4D`,
       }}
       onClick={() => router.push("/projets")}
     >

@@ -40,21 +40,22 @@ export default function SelectionSaison({ valeur, onChange, compact, saisonActue
   }
 
   function renderOptions() {
-    return OPTIONS_SAISON.map((option) => {
-      const estActif = option.valeur === valeur;
-      return (
-        <li key={option.valeur}>
-          <button
-            className={estActif ? "select-saison-option select-saison-option-active" : "select-saison-option"}
-            onClick={() => handleChoix(option.valeur)}
-          >
-            <span>{option.emoji}</span>
-            <span>{option.label}</span>
-          </button>
-        </li>
-      );
-    });
-  }
+  return OPTIONS_SAISON.map((option) => {
+    const estActif = option.valeur === valeur;
+    return (
+      <li key={option.valeur}>
+        <button
+          className={estActif ? "select-saison-option select-saison-option-active" : "select-saison-option"}
+          onClick={() => handleChoix(option.valeur)}
+          style={{ color: saisonActuelle === "nuit" ? "#E6EDF3" : "#000000" }}
+        >
+          <span>{option.emoji}</span>
+          <span>{option.label}</span>
+        </button>
+      </li>
+    );
+  });
+}
 
   return (
     <div className="select-saison-wrapper">

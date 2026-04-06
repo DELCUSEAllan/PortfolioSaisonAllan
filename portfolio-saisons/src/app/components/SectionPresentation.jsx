@@ -12,6 +12,7 @@ const COULEURS_LIEN = {
   ete:       "#3A9BD5",
   automne:   "#C0622A",
   hiver:     "#5BA4CF",
+  nuit:      "#58A6FF",
 };
 
 export default function SectionPresentation({ saisonActuelle }) {

@@ -9,13 +9,10 @@
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  background-color: #A2D39C;
-  color: #111827;
-  box-shadow: 0 10px 20px rgba(162, 211, 156, 0.3);
 }
 
 .bouton-principal:hover {
-  background-color: #8FCB81;
+  filter: brightness(0.9);
 }
 
 .bouton-action-wrapper {
