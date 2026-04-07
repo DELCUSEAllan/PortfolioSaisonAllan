@@ -83,3 +83,11 @@
   align-items: flex-end;
   gap: 10px;
 }
+
+@media (min-width: 768px) {
+  .bouton-principal {
+    max-width: 360px;
+    padding: 16px 24px;
+    font-size: 17px;
+  }
+}

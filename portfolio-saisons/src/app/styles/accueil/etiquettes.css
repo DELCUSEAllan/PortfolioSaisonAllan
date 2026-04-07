@@ -15,3 +15,16 @@
   background-color: #FFFA9C;
   color: #111827;
 }
+
+@media (min-width: 768px) {
+  .etiquette-techno {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .etiquettes-technos {
+    gap: 12px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+}

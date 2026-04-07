@@ -1,6 +1,6 @@
 .accueil {
   min-height: 100vh;
-  padding: 16px 16px 72px; /* marge en bas pour la barre */
+  padding: 16px 16px 72px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,6 +9,15 @@
 
 .contenu {
   width: 100%;
-  max-width: 420px; /* largeur type mobile large */
+  max-width: 420px;
 }
 
+@media (min-width: 768px) {
+  .accueil {
+    padding: 80px 48px 40px;
+  }
+
+  .contenu {
+    max-width: 680px;
+  }
+}

@@ -30,3 +30,19 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+@media (min-width: 768px) {
+  .section-titre {
+    font-size: 22px;
+  }
+
+  .section-presentation {
+    margin-top: 40px;
+    padding: 24px;
+  }
+
+  .section-texte {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+}
