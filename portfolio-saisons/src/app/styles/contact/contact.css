@@ -137,3 +137,48 @@
   text-decoration: none;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
+
+@media (min-width: 768px) {
+  .contact-titre {
+    display: none;
+  }
+
+  .contact-page {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .contact-contenu {
+    max-width: 600px;
+    padding-top: 20px;
+  }
+
+  .contact-intro {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .contact-icone {
+    width: 60px;
+    height: 60px;
+  }
+
+  .contact-champ {
+    padding: 16px 20px;
+    font-size: 15px;
+  }
+
+  .contact-textarea {
+    height: 160px;
+  }
+
+  .contact-bouton-envoyer {
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  .contact-bouton-cv {
+    padding: 16px 32px;
+    font-size: 15px;
+  }
+}

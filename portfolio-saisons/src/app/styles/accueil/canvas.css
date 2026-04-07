@@ -57,3 +57,10 @@
   pointer-events: none;
   z-index: 0;
 }
+
+@media (min-width: 768px) {
+  .canvas-hiver {
+    top: 56px;
+    height: calc(100% - 56px);
+  }
+}

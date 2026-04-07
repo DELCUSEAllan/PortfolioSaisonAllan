@@ -97,3 +97,37 @@
   justify-content: center;
   margin-top: 2px;
 }
+
+@media (min-width: 768px) {
+  .competences-titre {
+    display: none;
+  }
+
+  .competences-page {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .competences-contenu {
+    max-width: 900px;
+    padding-top: 20px;
+  }
+
+  .competences-intro {
+    font-size: 16px;
+  }
+
+  .competences-liste {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .vignette-competence {
+    min-height: 200px;
+  }
+
+  .competences-liste > *:last-child:nth-child(4n + 1) {
+    grid-column: 2 / 4;
+  }
+}

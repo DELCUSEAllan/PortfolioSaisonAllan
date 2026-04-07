@@ -15,14 +15,13 @@ const LIENS = [
 export default function BarreNavigation({ couleurActive, couleurTexte, saisonActuelle }) {
   const pathname = usePathname();
 
-  const fondNav = saisonActuelle === "nuit"
-    ? "#0D1117"
-    : "#FFFFFF";
-
-  const bordureNav = saisonActuelle === "nuit"
-    ? "rgba(88, 166, 255, 0.15)"
-    : "rgba(0, 0, 0, 0.08)";
-
+    const fondNav = saisonActuelle === "nuit"
+  ? "#161B22"
+  : "#FFFFFF";
+    const bordureNav = saisonActuelle === "nuit"
+  ? "rgba(88, 166, 255, 0.3)"
+  : "rgba(0, 0, 0, 0.08)";
+  
   return (
     <nav
       className="barre-navigation"

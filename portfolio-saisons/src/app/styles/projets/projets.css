@@ -140,3 +140,49 @@
   right: -8px;
   transform: rotate(180deg);
 }
+
+@media (min-width: 768px) {
+  .projets-titre {
+    display: none;
+  }
+
+  .projets-page {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .projets-contenu {
+    max-width: 900px;
+    padding-top: 20px;
+  }
+
+  .projets-intro {
+    font-size: 16px;
+  }
+
+  .projets-grille {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .carte-projet-nom {
+    font-size: 15px;
+  }
+
+  .carte-projet-description {
+    font-size: 13px;
+  }
+
+  .carte-projet-label {
+    font-size: 12px;
+  }
+
+  .carte-projet-texte {
+    font-size: 12px;
+  }
+
+  .carte-projet-techno {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+}
