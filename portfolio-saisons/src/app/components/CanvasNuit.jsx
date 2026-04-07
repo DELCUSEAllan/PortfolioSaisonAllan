@@ -15,6 +15,15 @@ function creerEtoile(canvas) {
   };
 }
 
+function reinitialiserEtoile(etoile, canvas) {
+  etoile.x = Math.random() * canvas.width;
+  etoile.y = Math.random() * canvas.height;
+  etoile.rayon = 0.5 + Math.random() * 1.5;
+  etoile.opaciteBase = 0.3 + Math.random() * 0.7;
+  etoile.vitessePulse = 0.01 + Math.random() * 0.02;
+  etoile.phase = Math.random() * Math.PI * 2;
+}
+
 function dessinerEtoile(ctx, etoile, temps) {
   const opacite = etoile.opaciteBase * (0.5 + 0.5 * Math.sin(temps * etoile.vitessePulse * 60 + etoile.phase));
   ctx.save();
@@ -40,15 +49,32 @@ export default function CanvasNuit() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
+    const redimensionner = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      // Redistribue les étoiles après redimensionnement
+      etoiles.forEach((etoile) => reinitialiserEtoile(etoile, canvas));
+    };
+
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
 
     const etoiles = Array.from({ length: NOMBRE_ETOILES }, () => creerEtoile(canvas));
     const animRef = { id: null };
 
-    animRef.id = requestAnimationFrame((t) => animer(ctx, canvas, etoiles, animRef, t));
+    // Démarre après un court délai pour s'assurer que le DOM est prêt
+    const timeout = setTimeout(() => {
+      redimensionner();
+      animRef.id = requestAnimationFrame((t) => animer(ctx, canvas, etoiles, animRef, t));
+    }, 50);
 
-    return () => cancelAnimationFrame(animRef.id);
+    window.addEventListener("resize", redimensionner);
+
+    return () => {
+      cancelAnimationFrame(animRef.id);
+      clearTimeout(timeout);
+      window.removeEventListener("resize", redimensionner);
+    };
   }, []);
 
   return <canvas ref={canvasRef} className="canvas-nuit" />;
