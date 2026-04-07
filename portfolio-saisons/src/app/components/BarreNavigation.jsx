@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { FaHome, FaBolt, FaBriefcase, FaEnvelope } from "react-icons/fa";
 import PropTypes from "prop-types";
 
+// Liste des liens de navigation avec leur route, label et icône
 const LIENS = [
   { href: "/",            label: "Accueil",     icone: FaHome },
   { href: "/competences", label: "Compétences", icone: FaBolt },
@@ -13,15 +14,25 @@ const LIENS = [
 ];
 
 export default function BarreNavigation({ couleurActive, couleurTexte, saisonActuelle }) {
+  // Récupère l'URL de la page actuellement affichée
   const pathname = usePathname();
 
-    const fondNav = saisonActuelle === "nuit"
-  ? "#161B22"
-  : "#FFFFFF";
-    const bordureNav = saisonActuelle === "nuit"
-  ? "rgba(88, 166, 255, 0.3)"
-  : "rgba(0, 0, 0, 0.08)";
-  
+  // Calcule la couleur de fond de la nav selon la saison
+  let fondNav;
+  if (saisonActuelle === "nuit") {
+    fondNav = "#161B22";
+  } else {
+    fondNav = "#FFFFFF";
+  }
+
+  // Calcule la couleur de la bordure selon la saison
+  let bordureNav;
+  if (saisonActuelle === "nuit") {
+    bordureNav = "rgba(88, 166, 255, 0.3)";
+  } else {
+    bordureNav = "rgba(0, 0, 0, 0.08)";
+  }
+
   return (
     <nav
       className="barre-navigation"
@@ -30,8 +41,12 @@ export default function BarreNavigation({ couleurActive, couleurTexte, saisonAct
         borderTop: `1px solid ${bordureNav}`,
       }}
     >
+      {/* On parcourt chaque lien du tableau LIENS pour créer les boutons de navigation */}
       {LIENS.map((lien) => {
+        // Récupère le composant icône du lien (ex: FaHome)
         const Icone = lien.icone;
+
+        // Vérifie si ce lien correspond à la page actuellement affichée
         const estActif = pathname === lien.href;
 
         return (
@@ -39,10 +54,13 @@ export default function BarreNavigation({ couleurActive, couleurTexte, saisonAct
             key={lien.href}
             href={lien.href}
             className="barre-navigation-lien"
+            // Couleur différente si le lien est actif ou non
             style={{ color: estActif ? couleurActive : couleurTexte }}
           >
             <Icone size={20} />
             <span>{lien.label}</span>
+
+            {/* Affiche l'indicateur uniquement sous le lien actif */}
             {estActif && (
               <span
                 className="barre-navigation-indicateur"
@@ -56,6 +74,7 @@ export default function BarreNavigation({ couleurActive, couleurTexte, saisonAct
   );
 }
 
+// Définition des types de props attendus par le composant
 BarreNavigation.propTypes = {
   couleurActive: PropTypes.string,
   couleurTexte: PropTypes.string,

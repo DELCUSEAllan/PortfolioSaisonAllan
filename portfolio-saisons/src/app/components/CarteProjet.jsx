@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { FaGithub } from "react-icons/fa";
 
+// Styles visuels pour chaque saison
+// filtreCoin    → filtre CSS appliqué sur les coins décoratifs pour les colorier selon la saison
+// vignetteFond  → couleur de fond des badges de technos
+// vignetteTexte → couleur du texte des badges de technos
+// carteFond     → couleur de fond de la carte projet
 const STYLES_SAISON = {
   printemps: { filtreCoin: "none",                                                    vignetteFond: "#F5D7E3", vignetteTexte: "#111827", carteFond: "rgba(255, 255, 255, 0.65)" },
   ete:       { filtreCoin: "sepia(1) saturate(3) hue-rotate(180deg)",                 vignetteFond: "#F2C46D", vignetteTexte: "#2C2420", carteFond: "rgba(255, 255, 255, 0.65)" },
@@ -13,12 +18,25 @@ const STYLES_SAISON = {
 };
 
 export default function CarteProjet({ projet, index, couleurPrincipal, couleurTexte, saisonActuelle }) {
+  // Récupère les styles de la saison active
+  // Si la saison n'existe pas dans le tableau, on utilise printemps par défaut
   const styles = STYLES_SAISON[saisonActuelle] ?? STYLES_SAISON.printemps;
 
+  // Couleur du texte de la carte selon la saison
+  let couleurTexteCarte;
+  if (saisonActuelle === "nuit") {
+    couleurTexteCarte = "#E6EDF3";
+  } else {
+    couleurTexteCarte = undefined; // undefined = on laisse le CSS gérer
+  }
+
   return (
+    // initial    → état de départ (invisible, réduit, décalé vers le bas)
+    // animate    → état final (visible, taille normale, à la bonne position)
+    // whileHover → légère augmentation de taille au survol de la souris
     <motion.div
       className="carte-projet"
-      style={{ backgroundColor: styles.carteFond, color: saisonActuelle === "nuit" ? "#E6EDF3" : undefined }}
+      style={{ backgroundColor: styles.carteFond, color: couleurTexteCarte }}
       initial={{ opacity: 0, scale: 0.8, y: 30 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{
@@ -28,13 +46,17 @@ export default function CarteProjet({ projet, index, couleurPrincipal, couleurTe
       }}
       whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
     >
+      {/* Coins décoratifs aux 4 coins de la carte, colorés selon la saison */}
       <div className="carte-coin carte-coin-haut-droit" style={{ filter: styles.filtreCoin }} />
       <div className="carte-coin carte-coin-bas-gauche" style={{ filter: styles.filtreCoin }} />
       <div className="carte-coin carte-coin-haut-gauche" style={{ filter: styles.filtreCoin }} />
       <div className="carte-coin carte-coin-bas-droit" style={{ filter: styles.filtreCoin }} />
 
+      {/* En-tête avec le nom du projet et le lien GitHub */}
       <div className="carte-projet-entete">
         <h2 className="carte-projet-nom">{projet.nom}</h2>
+
+        {/* Le lien GitHub n'est affiché que si le projet en a un */}
         {projet.github && (
           <a
             href={projet.github}
@@ -48,18 +70,24 @@ export default function CarteProjet({ projet, index, couleurPrincipal, couleurTe
         )}
       </div>
 
+      {/* Description courte du projet */}
       <p className="carte-projet-description">{projet.description}</p>
 
+      {/* Section "Ce que j'ai appris" */}
+      {/* &apos; est le code HTML pour l'apostrophe ' */}
       <div className="carte-projet-section">
         <span className="carte-projet-label">📚 Ce que j&apos;ai appris</span>
         <p className="carte-projet-texte">{projet.appris}</p>
       </div>
 
+      {/* Section "Où j'en suis" */}
       <div className="carte-projet-section">
         <span className="carte-projet-label">🚀 Où j&apos;en suis</span>
         <p className="carte-projet-texte">{projet.statut}</p>
       </div>
 
+      {/* Liste des technologies utilisées sous forme de badges */}
+      {/* On parcourt le tableau technos et on crée un badge pour chacune */}
       <div className="carte-projet-technos">
         {projet.technos.map((techno) => (
           <span
@@ -79,6 +107,9 @@ export default function CarteProjet({ projet, index, couleurPrincipal, couleurTe
   );
 }
 
+// Définition et validation des types de données reçues en props
+// PropTypes.shape → vérifie que l'objet a bien les bonnes propriétés avec les bons types
+// PropTypes.arrayOf → vérifie que c'est bien un tableau de strings
 CarteProjet.propTypes = {
   projet: PropTypes.shape({
     id: PropTypes.string,

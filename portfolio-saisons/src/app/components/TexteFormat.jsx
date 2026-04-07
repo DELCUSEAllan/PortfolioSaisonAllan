@@ -1,21 +1,27 @@
 import PropTypes from "prop-types";
 
-export default function TexteFormate({ texte }) {
-  const parties = texte.split(/(\*\*.*?\*\*)/g);
+// Composant qui affiche un texte avec des mots en gras
+export default function TexteFormat({ texte }) {
+  // Coupe le texte en morceaux en gardant les parties entre **
+  const morceaux = texte.split(/(\*\*.*?\*\*)/g);
 
   return (
     <>
-      {parties.map((partie, index) => {
-        if (partie.startsWith("**") && partie.endsWith("**")) {
-          const motEnGras = partie.slice(2, -2);
-          return <strong key={`${motEnGras}-${index}`}>{motEnGras}</strong>;
+      {morceaux.map((morceau, index) => {
+        // Si le morceau commence et finit par **, on le met en gras
+        if (morceau.startsWith("**") && morceau.endsWith("**")) {
+          const texteGras = morceau.slice(2, -2);
+          return <strong key={`${texteGras}-${index}`}>{texteGras}</strong>;
         }
-        return <span key={`${partie.substring(0, 10)}-${index}`}>{partie}</span>;
+
+        // Sinon, on affiche le texte normal
+        return <span key={`${morceau.substring(0, 10)}-${index}`}>{morceau}</span>;
       })}
     </>
   );
 }
 
-TexteFormate.propTypes = {
+// Type attendu pour la prop
+TexteFormat.propTypes = {
   texte: PropTypes.string,
 };

@@ -7,31 +7,39 @@ import { FaJava, FaGitAlt, FaReact, FaCss3Alt, FaHtml5 } from "react-icons/fa";
 import { SiGo, SiNextdotjs, SiMysql, SiDotnet } from "react-icons/si";
 import { NIVEAUX } from "../config/competences";
 
+// Icône associée à chaque compétence
 const ICONES = {
-  java: <FaJava size={24} />,
-  go: <SiGo size={24} />,
-  csharp: <SiDotnet size={24} />,
-  sql: <SiMysql size={24} />,
-  git: <FaGitAlt size={24} />,
-  react: <FaReact size={24} />,
-  nextjs: <SiNextdotjs size={24} />,
-  html: <FaHtml5 size={24} />,
-  css: <FaCss3Alt size={24} />,
+  java: <FaJava />,
+  go: <SiGo />,
+  csharp: <SiDotnet />,
+  sql: <SiMysql />,
+  git: <FaGitAlt />,
+  react: <FaReact />,
+  nextjs: <SiNextdotjs />,
+  html: <FaHtml5 />,
+  css: <FaCss3Alt />,
 };
 
+// Petite déco selon la saison
 const DECORATIONS = {
   printemps: { emoji: "🌱", bordure: "#A2D39C" },
-  ete:       { emoji: "🛟", bordure: "#3A9BD5" },
-  automne:   { emoji: "🍂", bordure: "#C0622A" },
-  hiver:     { emoji: "❄️", bordure: "#5BA4CF" },
-  nuit:      { emoji: "🪐", bordure: "#58A6FF" },
+  ete: { emoji: "🛟", bordure: "#3A9BD5" },
+  automne: { emoji: "🍂", bordure: "#C0622A" },
+  hiver: { emoji: "❄️", bordure: "#5BA4CF" },
+  nuit: { emoji: "🪐", bordure: "#58A6FF" },
 };
 
+// Vignette d'une compétence
 export default function VignetteCompetence({ competence, index, saisonActuelle }) {
+  // Sert à détecter quand la vignette entre dans l'écran
   const ref = useRef(null);
   const estVisible = useInView(ref, { once: true, margin: "-30px" });
+
+  // Infos du niveau de compétence
   const niveau = NIVEAUX[competence.niveau];
-  const deco = DECORATIONS[saisonActuelle] ?? DECORATIONS.printemps;
+
+  // Déco selon la saison actuelle
+  const deco = DECORATIONS[saisonActuelle] || DECORATIONS.printemps;
 
   return (
     <motion.div
@@ -41,24 +49,25 @@ export default function VignetteCompetence({ competence, index, saisonActuelle }
         border: `2px dashed ${deco.bordure}`,
         borderLeft: `4px solid ${deco.bordure}`,
       }}
-      initial={{ opacity: 0, scale: 0.8, y: 20 }}
-      animate={estVisible
-        ? { opacity: 1, scale: 1, y: 0 }
-        : { opacity: 0, scale: 0.8, y: 20 }
-      }
+      initial={{ opacity: 0, y: 20 }}
+      animate={estVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{
         duration: 0.4,
         delay: index * 0.08,
-        ease: "easeOut",
-        type: "spring",
-        bounce: 0.3,
       }}
     >
       <div className="vignette-competence-entete">
+        {/* Icône de la compétence */}
         <span className="vignette-competence-icone">
           {ICONES[competence.id]}
         </span>
-        <span className="vignette-competence-nom">{competence.nom}</span>
+
+        {/* Nom de la compétence */}
+        <span className="vignette-competence-nom">
+          {competence.nom}
+        </span>
+
+        {/* Niveau affiché avec ses couleurs */}
         <span
           className="vignette-competence-niveau"
           style={{
@@ -71,6 +80,7 @@ export default function VignetteCompetence({ competence, index, saisonActuelle }
       </div>
 
       <ul className="vignette-competence-liste">
+        {/* Liste de ce que tu as appris */}
         {competence.appris.map((item) => (
           <li key={item} className="vignette-competence-item">
             {deco.emoji} {item}

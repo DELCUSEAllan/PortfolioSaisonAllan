@@ -1,7 +1,3 @@
-/* =====================
-   PAGE COMPÉTENCES
-   ===================== */
-
 .competences-page {
   min-height: 100vh;
   padding: 24px 16px 80px;
@@ -95,7 +91,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2px;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.vignette-competence-icone svg {
+  width: 24px;
+  height: 24px;
 }
 
 @media (min-width: 768px) {
