@@ -1,12 +1,14 @@
 "use client";
 
-import BarreNavigation from "../components/BarreNavigation";
-import VignetteCompetence from "../components/VignetteCompetence";
-import TexteFormate from "../components/TexteFormat";
 import { SAISONS } from "../config/couleursSaisons";
 import { COMPETENCES, INTRO_COMPETENCES } from "../config/competences";
 import { useSaison } from "../context/SaisonContext";
 import "../styles/competences/competences.css";
+import dynamic from "next/dynamic";
+
+const BarreNavigation = dynamic(() => import("../components/BarreNavigation"), { ssr: false });
+const VignetteCompetence = dynamic(() => import("../components/VignetteCompetence"), { ssr: false });
+const TexteFormate = dynamic(() => import("../components/TexteFormat"), { ssr: false });
 
 function calculerBackground(saisonActuelle, saison) {
   if (saisonActuelle === "nuit") {
@@ -49,10 +51,11 @@ export default function Competences() {
         </div>
       </main>
 
-      <BarreNavigation
+     <BarreNavigation
         couleurActive={saison.boutonPrincipalFond}
         couleurTexte={saison.texteSecondaire}
-      />
+        saisonActuelle={saisonActuelle}
+        />
     </>
   );
 }

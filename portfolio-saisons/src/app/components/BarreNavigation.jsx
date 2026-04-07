@@ -6,17 +6,31 @@ import { FaHome, FaBolt, FaBriefcase, FaEnvelope } from "react-icons/fa";
 import PropTypes from "prop-types";
 
 const LIENS = [
-  { href: "/", label: "Accueil", icone: FaHome },
+  { href: "/",            label: "Accueil",     icone: FaHome },
   { href: "/competences", label: "Compétences", icone: FaBolt },
-  { href: "/projets", label: "Projets", icone: FaBriefcase },
-  { href: "/contact", label: "Contact", icone: FaEnvelope },
+  { href: "/projets",     label: "Projets",     icone: FaBriefcase },
+  { href: "/contact",     label: "Contact",     icone: FaEnvelope },
 ];
 
-export default function BarreNavigation({ couleurActive, couleurTexte }) {
+export default function BarreNavigation({ couleurActive, couleurTexte, saisonActuelle }) {
   const pathname = usePathname();
 
+  const fondNav = saisonActuelle === "nuit"
+    ? "#0D1117"
+    : "#FFFFFF";
+
+  const bordureNav = saisonActuelle === "nuit"
+    ? "rgba(88, 166, 255, 0.15)"
+    : "rgba(0, 0, 0, 0.08)";
+
   return (
-    <nav className="barre-navigation">
+    <nav
+      className="barre-navigation"
+      style={{
+        backgroundColor: fondNav,
+        borderTop: `1px solid ${bordureNav}`,
+      }}
+    >
       {LIENS.map((lien) => {
         const Icone = lien.icone;
         const estActif = pathname === lien.href;
@@ -46,4 +60,5 @@ export default function BarreNavigation({ couleurActive, couleurTexte }) {
 BarreNavigation.propTypes = {
   couleurActive: PropTypes.string,
   couleurTexte: PropTypes.string,
+  saisonActuelle: PropTypes.string,
 };

@@ -114,7 +114,8 @@ export default function Accueil() {
       <BarreNavigation
         couleurActive={saison.boutonPrincipalFond}
         couleurTexte={saison.texteSecondaire}
-      />
+        saisonActuelle={saisonActuelle}
+        />
     </>
   );
 }

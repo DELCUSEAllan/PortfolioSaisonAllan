@@ -1,3 +1,9 @@
+import PropTypes from "prop-types";
+
+CarteSaison.propTypes = {
+  nomSaison: PropTypes.string,
+};
+
 export default function CarteSaison({ nomSaison }) {
   return (
     <section className="carte-saison">

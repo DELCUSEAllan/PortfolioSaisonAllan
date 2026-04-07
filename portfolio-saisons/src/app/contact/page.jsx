@@ -2,12 +2,14 @@
 
 import emailjs from "@emailjs/browser";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import BarreNavigation from "../components/BarreNavigation";
 import { SAISONS, COULEURS_ICONES } from "../config/couleursSaisons";
 import { CONTACT } from "../config/contenuAccueil";
 import { useSaison } from "../context/SaisonContext";
 import "../styles/contact/contact.css";
 import { useState, useRef, useEffect } from "react";
+import dynamic from "next/dynamic";
+
+const BarreNavigation = dynamic(() => import("../components/BarreNavigation"), { ssr: false });
 
 function genererCaptcha() {
   const a = Math.floor(Math.random() * 9) + 1;
@@ -15,11 +17,32 @@ function genererCaptcha() {
   return { a, b, reponse: a + b };
 }
 
+function calculerBackground(saisonActuelle, saison) {
+  if (saisonActuelle === "nuit") {
+    return "linear-gradient(180deg, #0D1117 0%, #161B22 50%, #0D1117 100%)";
+  }
+  return `linear-gradient(180deg, ${saison.badgeFond} 0%, ${saison.fondPage} 40%, ${saison.boutonSecondaireFond} 100%)`;
+}
+
+const STYLES_CHAMP = {
+  nuit: {
+    backgroundColor: "rgba(31, 41, 55, 0.9)",
+    color: "#E6EDF3",
+    borderColor: "rgba(88, 166, 255, 0.3)",
+  },
+  defaut: {
+    backgroundColor: "rgba(255, 255, 255, 0.7)",
+    color: "inherit",
+    borderColor: "rgba(0, 0, 0, 0.1)",
+  },
+};
+
 export default function Contact() {
   const { saisonActuelle } = useSaison();
   const saison = SAISONS[saisonActuelle];
   const icones = COULEURS_ICONES[saisonActuelle] ?? COULEURS_ICONES.printemps;
   const formulaireRef = useRef(null);
+  const styleChamp = saisonActuelle === "nuit" ? STYLES_CHAMP.nuit : STYLES_CHAMP.defaut;
 
   const [captcha, setCaptcha] = useState({ a: 0, b: 0, reponse: 0 });
 
@@ -76,7 +99,7 @@ export default function Contact() {
       <main
         className="contact-page"
         style={{
-          background: `linear-gradient(180deg, ${saison.badgeFond} 0%, ${saison.fondPage} 40%, ${saison.boutonSecondaireFond} 100%)`,
+          background: calculerBackground(saisonActuelle, saison),
           color: saison.textePrincipal,
         }}
       >
@@ -127,6 +150,7 @@ export default function Contact() {
               name="nom"
               placeholder="Ton nom"
               className="contact-champ"
+              style={styleChamp}
               value={champs.nom}
               onChange={handleChange}
               required
@@ -136,6 +160,7 @@ export default function Contact() {
               name="email"
               placeholder="Ton email"
               className="contact-champ"
+              style={styleChamp}
               value={champs.email}
               onChange={handleChange}
               required
@@ -145,6 +170,7 @@ export default function Contact() {
               name="sujet"
               placeholder="Sujet"
               className="contact-champ"
+              style={styleChamp}
               value={champs.sujet}
               onChange={handleChange}
               required
@@ -153,6 +179,7 @@ export default function Contact() {
               name="message"
               placeholder="Ton message..."
               className="contact-champ contact-textarea"
+              style={styleChamp}
               value={champs.message}
               onChange={handleChange}
               required
@@ -166,6 +193,7 @@ export default function Contact() {
                 type="number"
                 placeholder="Ex : 14"
                 className="contact-champ contact-captcha-input"
+                style={styleChamp}
                 value={reponseCaptcha}
                 onChange={(e) => setReponseCaptcha(e.target.value)}
                 required
@@ -221,7 +249,8 @@ export default function Contact() {
       <BarreNavigation
         couleurActive={saison.boutonPrincipalFond}
         couleurTexte={saison.texteSecondaire}
-      />
+        saisonActuelle={saisonActuelle}
+        />
     </>
   );
 }

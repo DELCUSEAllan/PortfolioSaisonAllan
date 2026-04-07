@@ -6,12 +6,6 @@ import { SAISONS } from "../config/couleursSaisons";
 import { PROJETS } from "../config/projets";
 import { useSaison } from "../context/SaisonContext";
 import "../styles/projets/projets.css";
-import dynamic from "next/dynamic";
-
-const CanvasSakura = dynamic(
-  () => import("../components/CanvasSakura"),
-  { ssr: false }
-);
 
 function calculerBackground(saisonActuelle, saison) {
   if (saisonActuelle === "nuit") {
@@ -58,7 +52,8 @@ export default function Projets() {
       <BarreNavigation
         couleurActive={saison.boutonPrincipalFond}
         couleurTexte={saison.texteSecondaire}
-      />
+        saisonActuelle={saisonActuelle}
+        />
     </>
   );
 }
