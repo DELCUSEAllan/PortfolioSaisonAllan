@@ -1,182 +1,220 @@
+/* PAGE CONTACT */
+
+/* Page principale */
 .contact-page {
-  min-height: 100vh;
-  padding: 24px 16px 80px;
-  box-sizing: border-box;
+  min-height: 100vh; /* prend au minimum toute la hauteur de l'écran */
+  padding: 24px 16px 80px; /* 24px haut, 16px gauche/droite, 80px bas (espace pour la nav) */
+  box-sizing: border-box; /* le padding est inclus dans la largeur totale */
 }
 
+/* Conteneur centré du contenu */
 .contact-contenu {
   width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
+  max-width: 420px; /* largeur maximale type mobile */
+  margin: 0 auto; /* centré horizontalement */
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-direction: column; /* éléments empilés verticalement */
+  gap: 20px; /* espace entre chaque bloc (titre, icônes, formulaire...) */
 }
 
+/* Titre "Contact" */
 .contact-titre {
   font-size: 24px;
   font-weight: 700;
   text-align: center;
 }
 
+/* Phrase d'introduction */
 .contact-intro {
   font-size: 14px;
-  opacity: 0.75;
+  opacity: 0.75; /* légèrement transparent pour hiérarchie visuelle */
   text-align: center;
   line-height: 1.6;
 }
 
+/* Conteneur des trois icônes (email, LinkedIn, GitHub) */
 .contact-icones {
   display: flex;
-  justify-content: center;
-  gap: 12px;
+  justify-content: center; /* icônes centrées horizontalement */
+  gap: 12px; /* espace entre chaque icône */
 }
 
+/* Un bouton icône rond (email, LinkedIn ou GitHub) */
 .contact-icone {
   width: 48px;
   height: 48px;
-  border-radius: 999px;
+  border-radius: 999px; /* forme ronde */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center; /* icône centrée verticalement */
+  justify-content: center; /* icône centrée horizontalement */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease; /* animation de grossissement au survol en 0.2s */
+  /* couleur de fond et texte appliqués dynamiquement selon la saison dans contact/page.jsx */
 }
 
+/* Grossit légèrement l'icône au survol */
 .contact-icone:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* agrandit de 10% */
 }
 
+/* Formulaire de contact */
 .contact-formulaire {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  flex-direction: column; /* champs empilés verticalement */
+  gap: 12px; /* espace entre chaque champ */
 }
 
+/* Un champ de formulaire (nom, email, sujet, message) */
 .contact-champ {
   width: 100%;
   padding: 12px 16px;
   border-radius: 12px;
   border: 1.5px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.7); /* fond blanc semi-transparent */
   font-size: 14px;
-  outline: none;
-  backdrop-filter: blur(4px);
-  font-family: inherit;
+  outline: none; /* supprime le contour bleu par défaut du navigateur au focus */
+  backdrop-filter: blur(4px); /* floute ce qui est derrière le champ */
+  font-family: inherit; /* utilise la même police que le reste du site */
+  /* couleur de fond, texte et bordure écrasés dynamiquement en mode nuit dans contact/page.jsx */
 }
 
+/* Bordure plus visible quand l'utilisateur clique sur un champ */
 .contact-champ:focus {
   border-color: rgba(0, 0, 0, 0.3);
 }
 
+/* Zone de texte pour le message */
 .contact-textarea {
-  height: 120px;
-  resize: none;
+  height: 120px; /* plus haute que les autres champs */
+  resize: none; /* empêche l'utilisateur de redimensionner la zone de texte */
 }
 
+/* Bloc du captcha anti-robot */
 .contact-captcha {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 6px; /* espace entre la question et le champ de réponse */
 }
 
+/* Question du captcha "Anti-robot : combien font X + Y ?" */
 .contact-captcha-label {
   font-size: 13px;
   font-weight: 600;
   opacity: 0.8;
 }
 
+/* Petit champ de saisie pour la réponse du captcha */
 .contact-captcha-input {
-  max-width: 80px;
+  max-width: 80px; /* petit champ car on attend juste un nombre */
 }
 
+/* Messages de retour après l'envoi */
 .contact-message {
   font-size: 13px;
   font-weight: 600;
   text-align: center;
 }
 
+/* Message de succès en vert */
 .contact-message-succes {
   color: #A2D39C;
 }
 
+/* Message d'erreur en orange */
 .contact-message-erreur {
   color: #F4845F;
 }
 
+/* Bouton d'envoi du formulaire */
 .contact-bouton-envoyer {
   width: 100%;
   padding: 12px;
-  border-radius: 999px;
+  border-radius: 999px; /* forme pilule */
   border: none;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   font-family: inherit;
+  /* couleur de fond et texte appliqués dynamiquement selon la saison dans contact/page.jsx */
 }
 
+/* Style du bouton quand l'envoi est en cours (désactivé) */
 .contact-bouton-envoyer:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+  opacity: 0.6; /* plus transparent pour indiquer qu'il est inactif */
+  cursor: not-allowed; /* curseur "interdit" pour indiquer qu'on ne peut pas cliquer */
 }
 
+/* Conteneur du lien CV */
 .contact-cv {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* bouton CV centré */
 }
 
+/* Bouton de téléchargement du CV */
 .contact-bouton-cv {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  align-items: center; /* emoji et texte alignés verticalement */
+  gap: 8px; /* espace entre l'emoji 📄 et le texte */
   padding: 12px 24px;
-  border-radius: 999px;
+  border-radius: 999px; /* forme pilule */
   font-size: 14px;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none; /* supprime le soulignement par défaut des liens */
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  /* couleur de fond et texte appliqués dynamiquement selon la saison dans contact/page.jsx */
 }
 
+
+/* VERSION DESKTOP */
 @media (min-width: 768px) {
+  /* Titre caché sur desktop car la navigation indique déjà la page */
   .contact-titre {
     display: none;
   }
 
+  /* Plus d'espace en haut pour la barre de nav fixée en haut */
   .contact-page {
     padding-top: 80px;
     padding-bottom: 40px;
   }
 
+  /* Contenu plus large sur desktop */
   .contact-contenu {
     max-width: 600px;
     padding-top: 20px;
   }
 
+  /* Texte d'intro plus grand sur desktop */
   .contact-intro {
     font-size: 16px;
     margin-bottom: 8px;
   }
 
+  /* Icônes plus grandes sur desktop */
   .contact-icone {
     width: 60px;
     height: 60px;
   }
 
+  /* Champs plus grands sur desktop */
   .contact-champ {
     padding: 16px 20px;
     font-size: 15px;
   }
 
+  /* Zone de message plus haute sur desktop */
   .contact-textarea {
     height: 160px;
   }
 
+  /* Bouton d'envoi plus grand sur desktop */
   .contact-bouton-envoyer {
     padding: 16px;
     font-size: 16px;
   }
 
+  /* Bouton CV plus grand sur desktop */
   .contact-bouton-cv {
     padding: 16px 32px;
     font-size: 15px;

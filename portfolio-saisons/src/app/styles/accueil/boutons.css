@@ -1,93 +1,101 @@
+/* BOUTON PRINCIPAL "Voir mes projets" */
+
 .bouton-principal {
-  display: block;
-  width: 100%;
-  max-width: 260px;
-  margin: 0 auto 24px auto;
-  padding: 12px 16px;
-  border-radius: 999px;
-  border: none;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
+  display: block; /* occupe la largeur comme un paragraphe */
+  width: 100%; /* prend toute la largeur disponible */
+  max-width: 260px; /* ne dépasse jamais 260px */
+  margin: 0 auto 24px auto; /* 0 haut, auto gauche/droite = centré, 24px bas */
+  padding: 12px 16px; /* espace intérieur : 12px vertical, 16px horizontal */
+  border-radius: 999px; /* coins arrondis = forme pilule */
+  border: none; /* supprime le contour gris par défaut */
+  font-size: 15px; /* taille du texte */
+  font-weight: 600; /* texte gras */
+  cursor: pointer; /* curseur en forme de main en passant desssus */
+  /* la couleur de fond est appliquée dans BoutonPrincipal.jsx */
 }
 
+/* Assombrit légèrement le bouton au survol quelle que soit la couleur de la saison */
 .bouton-principal:hover {
-  filter: brightness(0.9);
+  filter: brightness(0.9); /* 1 = normal, 0.9 = 10% plus sombre */
 }
 
+
+/* BOUTON ACTION FLOTTANT, bouton "+" en bas à droite qui ouvre un menu rapide */
 .bouton-action-wrapper {
-  position: fixed;
-  bottom: 80px;
-  right: 16px;
-  width: 48px;
-  height: 48px;
-  z-index: 50;
+  position: fixed; /* reste collé à l'écran même en scrollant */
+  bottom: 80px; /* 80px du bas = au-dessus de la navbar (64px) */
+  right: 16px; /* 16px du bord droit */
+  width: 48px; /* largeur du conteneur */
+  height: 48px; /* hauteur du conteneur */
+  z-index: 50; /* passe devant la plupart des éléments de la page */
 }
 
 .bouton-action-principal {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  position: absolute; /* se positionne par rapport au wrapper */
+  bottom: 0; /* collé en bas du wrapper */
+  right: 0; /* collé à droite du wrapper */
   width: 48px;
   height: 48px;
-  border-radius: 999px;
+  border-radius: 999px; /* forme ronde */
   border: none;
   cursor: pointer;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  z-index: 2;
+  align-items: center; /* centre le "+" verticalement */
+  justify-content: center; /* centre le "+" horizontalement */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); /* ombre : 0 horizontal, 4px vertical, 16px flou, noir 15% */
+  z-index: 2; /* au-dessus de l'overlay qui est à z-index: 40 dans le wrapper */
 }
 
 .bouton-action-icone {
   font-size: 28px;
-  font-weight: 300;
-  line-height: 1;
+  font-weight: 300; /* "+" gras */
+  line-height: 1; /* hauteur de ligne = taille de la police, évite les espaces parasites */
   display: block;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /* anime la rotation du "+" en "×" à l'ouverture, en 0.3s */
 }
 
 .bouton-action-item {
   display: flex;
-  align-items: center;
-  gap: 5px;
+  align-items: center; /* icône et texte alignés verticalement */
+  gap: 5px; /* espace entre icône et texte */
   padding: 8px 12px;
   border-radius: 999px;
   font-size: 12px;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none; /* supprime le soulignement des liens */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  white-space: nowrap;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  white-space: nowrap; /* force le texte sur une seule ligne */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* apparition/disparition progressive en 0.3s */
 }
 
 .bouton-action-overlay {
-  position: fixed;
+  position: fixed; /* reste collé à l'écran même en scrollant */
   bottom: 60px;
   right: 0px;
   width: 200px;
   height: 200px;
-  border-radius: 999px;
-  background-color: rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(3px);
-  z-index: 40;
+  border-radius: 999px; /* forme ronde */
+  background-color: rgba(0, 0, 0, 0.12); /* noir très transparent = légèrement visible */
+  z-index: 40; /* derrière le bouton + (z-index: 50) mais devant le contenu */
 }
 
 .bouton-action-menu {
-  position: absolute;
-  bottom: 8px;
-  right: 56px;
+  position: absolute; /* se positionne par rapport au wrapper */
+  bottom: 8px; /* légèrement au-dessus du bas du wrapper */
+  right: 56px; /* décalé à gauche du bouton + pour que les liens apparaissent à sa gauche */
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
+  flex-direction: column; /* les liens s'empilent verticalement */
+  align-items: flex-end; /* les liens sont alignés à droite */
+  gap: 10px; /* espace entre chaque lien */
 }
+
+
+/* VERSION DESKTOP */
 
 @media (min-width: 768px) {
   .bouton-principal {
-    max-width: 360px;
-    padding: 16px 24px;
-    font-size: 17px;
+    max-width: 360px;  /* plus large sur desktop */
+    padding: 16px 24px; /* plus d'espace intérieur */
+    font-size: 17px;   /* texte plus grand */
   }
 }

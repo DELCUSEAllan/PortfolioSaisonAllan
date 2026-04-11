@@ -1,77 +1,91 @@
 /* stylelint-disable color-no-invalid-hex, color-contrast */
 /* stylelint-disable-next-line color-contrast */
 
+/* SÉLECTEUR DE SAISON - Bouton "Printemps ▼" en haut à droite de l'accueil */
+
+/* Conteneur du sélecteur - position relative pour que le dropdown se positionne par rapport à lui */
 .select-saison-wrapper {
-  position: relative;
-  display: inline-block;
+  position: relative; /* le dropdown se positionnera par rapport à ce conteneur */
+  display: inline-block; /* prend uniquement la place nécessaire, pas toute la largeur */
 }
 
+/* Le bouton principal "Printemps ▼" */
 .select-saison-bouton {
   display: flex;
-  align-items: center;
-  gap: 4px;
+  align-items: center; /* emoji, texte et flèche alignés verticalement */
+  gap: 4px; /* espace entre chaque élément du bouton */
   padding: 5px 10px;
-  border-radius: 999px;
+  border-radius: 999px; /* forme pilule */
   border: none;
   font-size: 11px;
   font-weight: 600;
   cursor: pointer;
-  white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(245, 215, 227, 0.4);
+  white-space: nowrap; /* empêche le texte de se couper sur plusieurs lignes */
+  box-shadow: 0 4px 12px rgba(245, 215, 227, 0.4); /* ombre rose légère */
+  /* la couleur de fond et du texte sont appliquées selon la saison dans SelectionSaison.jsx */
 }
 
+/* Assombrit légèrement le bouton au survol */
 .select-saison-bouton:hover {
   filter: brightness(0.95);
 }
 
+/* L'emoji de la saison (🌸, ☀️, 🍂, ❄️, 🌙) */
 .select-saison-emoji {
-  font-size: 16px;
+  font-size: 16px; /* plus grand que le reste du texte pour le mettre en valeur */
 }
 
+/* Le nom de la saison */
 .select-saison-label {
   font-size: 14px;
   font-weight: 600;
 }
 
+/* La flèche ▼ ou ▲ selon si le menu est ouvert ou fermé */
 .select-saison-fleche {
   font-size: 11px;
-  margin-left: 2px;
+  margin-left: 2px; /* petit espace entre le texte et la flèche */
 }
 
+/* Le menu déroulant qui apparaît quand on clique sur le bouton */
 .select-saison-dropdown {
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
+  position: absolute; /* se positionne par rapport au wrapper */
+  top: calc(100% + 8px); /* juste en dessous du bouton + 8px d'espace */
+  right: 0; /* aligné à droite du bouton */
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  list-style: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* ombre portée pour effet de profondeur */
+  list-style: none; /* supprime les puces de liste */
   padding: 6px;
-  margin: 0;
-  min-width: 150px;
-  z-index: 100;
+  margin: 0; /* supprime la marge par défaut des listes */
+  min-width: 150px; /* largeur minimale pour que les options soient lisibles */
+  z-index: 100; /* passe devant tous les autres éléments */
+  /* la couleur de fond est appliquée dynamiquement selon la saison dans SelectionSaison.jsx */
 }
 
+/* Une option dans le menu (ex: "🌸 Printemps") */
 .select-saison-option {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  align-items: center; /* emoji et texte alignés verticalement */
+  gap: 8px; /* espace entre l'emoji et le texte */
   padding: 8px 10px;
   border-radius: 10px;
   font-size: 12px;
   cursor: pointer;
-  color: #111827;
-  background: none;
+  color: #111827; /* couleur par défaut, peut être écrasée dynamiquement en mode nuit */
+  background: none; /* pas de fond par défaut */
   border: none;
-  width: 100%;
-  text-align: left;
+  width: 100%; /* prend toute la largeur du dropdown */
+  text-align: left; /* texte aligné à gauche */
 }
 
+/* Fond légèrement grisé au survol d'une option */
 .select-saison-option:hover {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: rgba(0, 0, 0, 0.06); /* noir très transparent = gris très léger */
 }
 
+/* Style de l'option actuellement sélectionnée */
 .select-saison-option-active {
-  font-weight: 600;
+  font-weight: 600;                        /* gras pour la distinguer des autres */
   color: #111827;
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: rgba(0, 0, 0, 0.08);  /* légèrement plus foncé que le hover */
 }

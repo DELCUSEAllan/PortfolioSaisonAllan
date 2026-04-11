@@ -1,29 +1,37 @@
+/* ÉTIQUETTES TECHNOLOGIES - Badges affichés sous la présentation (Java, React, Go...) */
+
+/* Conteneur de tous les badges */
 .etiquettes-technos {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
+  flex-wrap: wrap; /* les badges passent à la ligne s'ils ne tiennent pas sur une seule ligne */
+  gap: 8px; /* espace entre chaque badge */
+  justify-content: center; /* badges centrés horizontalement */
   margin-top: 16px;
   margin-bottom: 16px;
 }
 
+/* Un badge individuel (ex: "Java", "React"...) */
 .etiquette-techno {
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1.5px solid #F5D7E3;
+  padding: 6px 12px; /* espace intérieur : 6px haut/bas, 12px gauche/droite */
+  border-radius: 999px; /* forme pilule arrondie */
+  border: 1.5px solid #F5D7E3; /* contour rose clair - remplacé dynamiquement selon la saison */
   font-size: 12px;
-  background-color: #FFFA9C;
-  color: #111827;
+  background-color: #FFFA9C; /* fond jaune clair - remplacé dynamiquement selon la saison */
+  color: #111827; /* texte foncé - remplacé dynamiquement selon la saison */
+  /* les couleurs ici sont les valeurs par défaut, elles sont écrasées par le style inline dans EtiquettesTechnos.jsx */
 }
 
+
+/* VERSION DESKTOP */
 @media (min-width: 768px) {
+  /* Badges plus grands sur desktop */
   .etiquette-techno {
-    padding: 8px 16px;
-    font-size: 14px;
+    padding: 8px 16px; /* plus d'espace intérieur */
+    font-size: 14px;   /* texte plus grand */
   }
 
   .etiquettes-technos {
-    gap: 12px;
+    gap: 12px; /* plus d'espace entre les badges */
     margin-top: 24px;
     margin-bottom: 24px;
   }

@@ -1,15 +1,20 @@
+/* PAGE COMPÉTENCES */
+
+/* Page principale */
 .competences-page {
-  min-height: 100vh;
-  padding: 24px 16px 80px;
-  box-sizing: border-box;
+  min-height: 100vh; /* prend au minimum toute la hauteur de l'écran */
+  padding: 24px 16px 80px; /* 24px haut, 16px gauche/droite, 80px bas (espace pour la nav) */
+  box-sizing: border-box; /* le padding est inclus dans la largeur totale */
 }
 
+/* Conteneur centré du contenu */
 .competences-contenu {
   width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
+  max-width: 420px; /* largeur maximale type mobile */
+  margin: 0 auto;   /* centré horizontalement */
 }
 
+/* Titre "Mes Compétences" */
 .competences-titre {
   font-size: 24px;
   font-weight: 700;
@@ -17,120 +22,144 @@
   text-align: center;
 }
 
+/* Phrase d'introduction sous le titre */
 .competences-intro {
   font-size: 14px;
-  opacity: 0.75;
+  opacity: 0.75; /* légèrement transparent pour hiérarchie visuelle */
   text-align: center;
   margin-bottom: 24px;
-  line-height: 1.6;
+  line-height: 1.6; /* hauteur de ligne pour faciliter la lecture */
 }
 
+/* Liste des vignettes empilées verticalement sur mobile */
 .competences-liste {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  flex-direction: column; /* vignettes empilées verticalement */
+  gap: 12px; /* espace entre chaque vignette */
 }
 
-/* Vignette */
 
+/* VIGNETTE DE COMPÉTENCE Carte individuelle (Java, React, Go...) */
 .vignette-competence {
-  background-color: rgba(255, 255, 255, 0.65);
-  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.65); /* fond blanc semi-transparent */
+  border-radius: 16px; /* coins arrondis */
   padding: 14px 16px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  backdrop-filter: blur(4px);
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  min-height: 160px;
-  justify-content: flex-start;
+  flex-direction: column; /* contenu empilé verticalement */
+  gap: 10px; /* espace entre chaque élément de la vignette */
+  backdrop-filter: blur(4px); /* floute ce qui est derrière la vignette */
+  border-top-left-radius: 4px; /* coin haut gauche moins arrondi */
+  border-bottom-left-radius: 4px; /* coin bas gauche moins arrondi */
+
+  /* la bordure gauche colorée est appliquée dynamiquement dans VignetteCompetence.jsx */
+  min-height: 160px; /* hauteur minimale pour que toutes les vignettes aient la même taille */
+  justify-content: flex-start; /* contenu aligné en haut de la vignette */
 }
 
+/* En-tête de la vignette : icône + nom + badge niveau */
 .vignette-competence-entete {
   display: flex;
-  align-items: center;
+  align-items: center; /* tous les éléments alignés verticalement */
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* passe à la ligne si pas assez de place */
 }
 
+/* Emoji décoratif de la saison (🌱, 🛟, 🍂, ❄️, 🪐) */
 .vignette-competence-emoji {
   font-size: 20px;
 }
 
+/* Nom de la technologie (Java, React...) */
 .vignette-competence-nom {
   font-size: 15px;
   font-weight: 700;
-  flex: 1;
+  flex: 1; /* prend tout l'espace disponible entre l'emoji et le badge niveau */
 }
 
+/* Badge de niveau (Débutant, Intermédiaire, Avancé) */
 .vignette-competence-niveau {
   padding: 3px 10px;
-  border-radius: 999px;
+  border-radius: 999px; /* forme pilule */
   font-size: 11px;
   font-weight: 600;
+  /* couleur de fond et texte appliqués dynamiquement dans VignetteCompetence.jsx */
 }
 
+/* Liste des points appris dans la technologie */
 .vignette-competence-liste {
-  list-style: none;
+  list-style: none; /* supprime les puces de liste */
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  flex: 1;
+  gap: 4px; /* petit espace entre chaque point */
+  flex: 1;  /* prend tout l'espace restant dans la vignette */
 }
 
+/* Un point de la liste (ex: "Création d'API REST") */
 .vignette-competence-item {
   font-size: 12px;
   line-height: 1.5;
-  color: inherit;
+  color: inherit; /* hérite la couleur du parent pour s'adapter au mode nuit */
 }
 
+/* Conteneur de l'icône de la technologie (logo Java, React...) */
 .vignette-competence-icone {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 28px;
   height: 28px;
-  flex-shrink: 0;
+  flex-shrink: 0; /* ne rétrécit pas si la place manque */
 }
 
+/* Taille fixe pour tous les SVG des icônes */
 .vignette-competence-icone svg {
   width: 24px;
   height: 24px;
 }
 
+
+/* VERSION DESKTOP */
+
 @media (min-width: 768px) {
+  /* Titre caché sur desktop car la navigation indique déjà la page */
   .competences-titre {
     display: none;
   }
 
+  /* Plus d'espace en haut pour la barre de nav fixée en haut */
   .competences-page {
     padding-top: 80px;
     padding-bottom: 40px;
   }
 
+  /* Contenu plus large sur desktop */
   .competences-contenu {
     max-width: 900px;
     padding-top: 20px;
   }
 
+  /* Texte d'intro plus grand sur desktop */
   .competences-intro {
     font-size: 16px;
   }
 
+  /* Grille de 4 colonnes sur desktop au lieu d'une colonne sur mobile */
   .competences-liste {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes de largeur égale */
     gap: 16px;
   }
 
+  /* Vignettes plus hautes sur desktop */
   .vignette-competence {
     min-height: 200px;
   }
 
+  /* Si la dernière vignette est seule sur sa ligne, elle est centrée sur 2 colonnes */
+  /* :last-child = dernier élément, :nth-child(4n + 1) = premier d'une nouvelle ligne */
   .competences-liste > *:last-child:nth-child(4n + 1) {
-    grid-column: 2 / 4;
+    grid-column: 2 / 4; /* occupe les colonnes 2 et 3 = centré dans la grille de 4 */
   }
 }

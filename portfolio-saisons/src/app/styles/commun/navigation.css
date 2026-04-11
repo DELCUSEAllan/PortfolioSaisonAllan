@@ -1,62 +1,71 @@
+/* BARRE DE NAVIGATION - Fixée en bas sur mobile, en haut sur desktop */
+
+/* La barre de navigation principale */
 .barre-navigation {
-  position: fixed;
-  bottom: 0;
+  position: fixed; /* reste collée à l'écran même en scrollant */
+  bottom: 0; /* collée en bas de l'écran sur mobile */
   left: 0;
-  right: 0;
+  right: 0; /* s'étend sur toute la largeur de l'écran */
   height: 64px;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #FFFFFF;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  z-index: 100;
+  justify-content: space-around; /* les liens sont répartis uniformément */
+  align-items: center; /* liens centrés verticalement */
+  background-color: #FFFFFF; /* fond blanc - écrasé dynamiquement en mode nuit */
+  border-top: 1px solid rgba(0, 0, 0, 0.08); /* fine ligne de séparation en haut */
+  z-index: 100; /* passe devant absolument tout - valeur la plus haute du projet */
 }
 
+/* Un lien de navigation (Accueil, Compétences, Projets, Contact) */
 .barre-navigation-lien {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
+  flex-direction: column; /* icône au-dessus, texte en dessous sur mobile */
+  align-items: center; /* icône et texte centrés horizontalement */
+  gap: 3px; /* petit espace entre l'icône et le texte */
   font-size: 10px;
   font-weight: 600;
-  text-decoration: none;
-  position: relative;
-  padding-bottom: 4px;
+  text-decoration: none; /* supprime le soulignement par défaut des liens */
+  position: relative; /* nécessaire pour positionner l'indicateur par rapport au lien */
+  padding-bottom: 4px; /* espace en bas pour laisser de la place à l'indicateur */
+  /* la couleur est appliquée dynamiquement selon la saison dans BarreNavigation.jsx */
 }
 
+/* Petit trait coloré sous le lien actif */
 .barre-navigation-indicateur {
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
+  position: absolute; /* se positionne par rapport au lien */
+  bottom: -4px; /* juste en dessous du lien */
+  left: 50%; /* part du milieu */
+  transform: translateX(-50%); /* recule de 50% de sa propre largeur pour être parfaitement centré */
+  width: 20px; /* largeur fixe du trait */
   height: 3px;
-  border-radius: 999px;
+  border-radius: 999px; /* bouts arrondis */
+  /* la couleur de fond est appliquée dynamiquement selon la saison dans BarreNavigation.jsx */
 }
 
+
+/* VERSION DESKTOP - La barre passe du bas vers le haut de l'écran */
 @media (min-width: 768px) {
   .barre-navigation {
-    top: 0;
-    bottom: auto;
-    height: 56px;
-    padding: 0 40px;
-    justify-content: center;
-    gap: 48px;
-    border-top: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    top: 0; /* collée en haut de l'écran sur desktop */
+    bottom: auto; /* annule le bottom: 0 du mobile */
+    height: 56px; /* légèrement moins haute qu'en mobile */
+    padding: 0 40px; /* espace à gauche et droite */
+    justify-content: center; /* liens groupés au centre */
+    gap: 48px; /* espace entre chaque lien */
+    border-top: none;  /* supprime la bordure du haut (elle était en bas sur mobile) */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* bordure en bas à la place */
   }
 
   .barre-navigation-lien {
-    flex-direction: row;
+    flex-direction: row; /* icône à gauche, texte à droite sur desktop */
     gap: 6px;
-    font-size: 13px;
-    padding-bottom: 0;
+    font-size: 13px; /* texte plus grand sur desktop */
+    padding-bottom: 0; /* plus besoin d'espace en bas */
   }
 
   .barre-navigation-indicateur {
-    bottom: -6px;
+    bottom: -6px; /* légèrement plus bas sur desktop */
     left: 50%;
-    width: 100%;
-    height: 2px;
+    width: 100%; /* le trait prend toute la largeur du lien sur desktop */
+    height: 2px; /* légèrement moins épais sur desktop */
   }
 }

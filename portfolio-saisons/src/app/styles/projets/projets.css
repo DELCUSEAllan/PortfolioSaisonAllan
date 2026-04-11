@@ -1,15 +1,20 @@
+/* PAGE PROJETS */
+
+/* Page principale */
 .projets-page {
-  min-height: 100vh;
-  padding: 24px 16px 80px;
-  box-sizing: border-box;
+  min-height: 100vh; /* prend au minimum toute la hauteur de l'écran */
+  padding: 24px 16px 80px; /* 24px haut, 16px gauche/droite, 80px bas (espace pour la nav) */
+  box-sizing: border-box;  /* le padding est inclus dans la largeur totale */
 }
 
+/* Conteneur centré du contenu */
 .projets-contenu {
   width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
+  max-width: 420px; /* largeur maximale type mobile */
+  margin: 0 auto; /* centré horizontalement */
 }
 
+/* Titre "Mes Projets" */
 .projets-titre {
   font-size: 24px;
   font-weight: 700;
@@ -17,71 +22,82 @@
   text-align: center;
 }
 
+/* Phrase d'introduction sous le titre */
 .projets-intro {
   font-size: 14px;
-  opacity: 0.75;
+  opacity: 0.75; /* légèrement transparent pour hiérarchie visuelle */
   text-align: center;
   margin-bottom: 24px;
   line-height: 1.6;
 }
 
+/* Grille de 2 colonnes pour les cartes projets */
 .projets-grille {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  grid-template-columns: 1fr 1fr; /* 2 colonnes de largeur égale */
+  gap: 12px; /* espace entre les cartes */
 }
 
-/* Carte projet */
+
+/* CARTE PROJET */
+/* Conteneur de la carte */
 .carte-projet {
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.65);
+  position: relative; /* nécessaire pour positionner les coins décoratifs */
+  background-color: rgba(255, 255, 255, 0.65); /* fond blanc semi-transparent */
   border-radius: 16px;
   padding: 12px;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  backdrop-filter: blur(4px);
-  border: none;
+  flex-direction: column; /* contenu empilé verticalement */
+  gap: 8px; /* espace entre chaque élément de la carte */
+  backdrop-filter: blur(4px); /* floute ce qui est derrière la carte */
+  border: none; /* bordure appliquée dynamiquement dans CarteProjet.jsx */
   cursor: pointer;
-  overflow: visible;
+  overflow: visible; /* permet aux coins décoratifs de dépasser de la carte */
 }
 
+/* En-tête avec le nom du projet et le lien GitHub */
 .carte-projet-entete {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* nom à gauche, GitHub à droite */
   align-items: center;
 }
 
+/* Nom du projet */
 .carte-projet-nom {
   font-size: 13px;
   font-weight: 700;
-  margin: 0;
+  margin: 0; /* supprime la marge par défaut des balises h2 */
 }
 
+/* Icône GitHub */
 .carte-projet-github {
   display: flex;
   align-items: center;
 }
 
+/* Description courte du projet */
 .carte-projet-description {
   font-size: 11px;
   line-height: 1.5;
-  opacity: 0.8;
+  opacity: 0.8; /* légèrement transparent */
   margin: 0;
 }
 
+/* Bloc "Ce que j'ai appris" ou "Où j'en suis" */
 .carte-projet-section {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 2px; /* petit espace entre le label et le texte */
 }
 
+/* Label "📚 Ce que j'ai appris" ou "🚀 Où j'en suis" */
 .carte-projet-label {
   font-size: 10px;
   font-weight: 700;
-  opacity: 0.6;
+  opacity: 0.6; /* plus discret que le contenu */
 }
 
+/* Contenu du bloc */
 .carte-projet-texte {
   font-size: 11px;
   line-height: 1.4;
@@ -89,82 +105,97 @@
   opacity: 0.8;
 }
 
+/* Conteneur des badges de technologies */
 .carte-projet-technos {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* passe à la ligne si pas assez de place */
   gap: 4px;
   margin-top: 4px;
 }
 
+/* Un badge de technologie (Go, React...) */
 .carte-projet-techno {
   padding: 2px 8px;
-  border-radius: 999px;
+  border-radius: 999px; /* forme pilule */
   font-size: 10px;
   font-weight: 600;
-  background-color: #F5D7E3;
-  color: #111827;
-  border: 1px solid #ffb7c5;
+  background-color: #F5D7E3; /* écrasé dynamiquement selon la saison dans CarteProjet.jsx */
+  color: #111827; /* écrasé dynamiquement selon la saison dans CarteProjet.jsx */
+  border: 1px solid #ffb7c5; /* écrasé dynamiquement selon la saison dans CarteProjet.jsx */
 }
 
+/* Coin décoratif floral aux 4 coins de la carte */
 .carte-coin {
-  position: absolute;
+  position: absolute; /* se positionne par rapport à la carte */
   width: 35px;
   height: 35px;
-  background-image: url("/coin-floral.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-image: url("/coin-floral.svg"); /* image SVG du coin floral */
+  background-size: contain; /* l'image remplit le carré sans se déformer */
+  background-repeat: no-repeat; /* l'image ne se répète pas */
   opacity: 0.9;
-  pointer-events: none;
-  z-index: 2;
+  pointer-events: none; /* les clics traversent le coin */
+  z-index: 2; /* passe devant le contenu de la carte */
+  /* la teinte est appliquée dynamiquement via filter dans CarteProjet.jsx */
 }
 
+/* Coin haut droite - tourné de 90° */
 .carte-coin-haut-droit {
-  top: -8px;
+  top: -8px;   /* dépasse légèrement de la carte */
   right: -8px;
   transform: rotate(90deg);
 }
 
+/* Coin bas gauche - tourné de 270° */
 .carte-coin-bas-gauche {
   bottom: -8px;
   left: -8px;
   transform: rotate(270deg);
 }
 
+/* Coin haut gauche - pas de rotation */
 .carte-coin-haut-gauche {
   top: -8px;
   left: -8px;
 }
 
+/* Coin bas droite - tourné de 180° */
 .carte-coin-bas-droit {
   bottom: -8px;
   right: -8px;
   transform: rotate(180deg);
 }
 
+/* VERSION DESKTOP */
 @media (min-width: 768px) {
+  /* Titre caché sur desktop car la navigation indique déjà la page */
   .projets-titre {
     display: none;
   }
 
+  /* Plus d'espace en haut pour la barre de nav fixée en haut */
   .projets-page {
     padding-top: 80px;
     padding-bottom: 40px;
   }
 
+  /* Contenu plus large sur desktop */
   .projets-contenu {
     max-width: 900px;
     padding-top: 20px;
   }
 
+  /* Texte d'intro plus grand sur desktop */
   .projets-intro {
     font-size: 16px;
   }
 
+  /* Toujours 2 colonnes mais plus espacées sur desktop */
   .projets-grille {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 20px; /* plus d'espace entre les cartes */
   }
 
+  /* Textes plus grands sur desktop */
   .carte-projet-nom {
     font-size: 15px;
   }

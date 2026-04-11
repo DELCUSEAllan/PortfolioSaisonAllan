@@ -1,65 +1,76 @@
+/*  EN-TÊTE DE LA PAGE ACCUEIL
+    Contient le sélecteur de saison, l'avatar et le nom */
+
 .en-tete-accueil {
-  position: relative;
-  z-index: 2;
+  position: relative; /* permet aux éléments enfants de se positionner par rapport à lui */
+  z-index: 2; /* passe devant les canvas des animations (z-index: 0 et 1) */
   padding-top: 24px;
   padding-bottom: 24px;
 }
 
+/* Ligne du haut qui contient le sélecteur de saison */
 .en-tete-ligne-superieure {
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 16px;
+  justify-content: flex-end; /* pousse le sélecteur de saison vers la droite */
+  margin-bottom: 16px; /* espace entre le sélecteur et l'avatar */
 }
 
+/* Bloc central avec l'avatar et le nom, empilés verticalement et centrés */
 .en-tete-contenu {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; /* empile les éléments verticalement */
+  align-items: center; /* centre horizontalement */
   text-align: center;
-  gap: 12px;
+  gap: 12px; /* espace entre l'avatar et les textes */
 }
 
+/* Conteneur circulaire de la photo de profil */
 .en-tete-avatar {
   width: 120px;
   height: 120px;
-  border-radius: 999px;
-  overflow: hidden;
+  border-radius: 999px; /* forme parfaitement ronde */
+  overflow: hidden; /* cache les coins de l'image qui dépassent du cercle */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* La photo de profil elle-même */
 .en-tete-avatar-image {
   width: 100%;
   height: 100%;
   border-radius: 999px;
-  object-fit: cover;
+  object-fit: cover; /* l'image remplit le cercle sans se déformer, les bords sont coupés si besoin */
 }
 
-.en-tete-avatar-lettre {
-  font-size: 32px;
-  font-weight: 600;
-}
-
+/* Conteneur du nom et du sous-titre */
 .en-tete-textes {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: column; /* nom au-dessus, sous-titre en dessous */
+  gap: 4px;               /* petit espace entre le nom et le sous-titre */
 }
 
+/* Prénom affiché en grand */
 .en-tete-nom {
   font-size: 24px;
-  font-weight: 700;
-  margin: 0;
+  font-weight: 700; /* gras */
+  margin: 0;        /* supprime la marge par défaut des balises h1 */
 }
 
+/* Sous-titre "Étudiant Bachelor..." */
 .en-tete-sous-titre {
   font-size: 14px;
   margin: 0;
-  opacity: 0.75;
+  opacity: 0.75; /* légèrement transparent pour hiérarchie visuelle avec le nom */
 }
 
+
+/* =====================
+   VERSION DESKTOP
+   ===================== */
+
 @media (min-width: 768px) {
+  /* Avatar plus grand sur desktop */
   .en-tete-avatar {
     width: 160px;
     height: 160px;
@@ -70,6 +81,7 @@
     height: 160px;
   }
 
+  /* Textes plus grands sur desktop */
   .en-tete-nom {
     font-size: 32px;
   }
