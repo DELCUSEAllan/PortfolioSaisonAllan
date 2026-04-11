@@ -1,10 +1,13 @@
 // src/app/config/competences.js
 
-export const INTRO_COMPETENCES = "Voici les **technologies** que j'ai pu **apprendre** et **pratiquer** au fil de mes **projets** et de ma **formation**.";
+// Petit texte d'introduction affiché sur la page compétences
+export const INTRO_COMPETENCES =
+  "Voici les **technologies** que j'ai pu **apprendre** et **pratiquer** au fil de mes **projets** et de ma **formation**.";
 
+// Liste des compétences affichées sur la page
 export const COMPETENCES = [
   {
-    id: "java",
+    id: "java", // identifiant utilisé dans le code
     nom: "Java",
     niveau: "apprentissage",
     appris: [
@@ -95,6 +98,8 @@ export const COMPETENCES = [
   },
 ];
 
+// Informations liées à chaque niveau
+// Ça permet d'afficher un texte et des couleurs selon le niveau choisi
 export const NIVEAUX = {
   alaise: {
     label: "À l'aise",

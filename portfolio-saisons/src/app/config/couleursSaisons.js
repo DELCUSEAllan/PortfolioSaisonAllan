@@ -1,3 +1,4 @@
+// Couleurs principales pour chaque saison
 export const SAISONS = {
   printemps: {
     nom: "Printemps",
@@ -11,6 +12,7 @@ export const SAISONS = {
     badgeFond: "#FFFA9C",
     badgeTexte: "#111827",
   },
+
   ete: {
     nom: "Été",
     fondPage: "#FDF6EC",
@@ -23,6 +25,7 @@ export const SAISONS = {
     badgeFond: "#F2C46D",
     badgeTexte: "#2C2420",
   },
+
   automne: {
     nom: "Automne",
     fondPage: "#FAF3E8",
@@ -35,6 +38,7 @@ export const SAISONS = {
     badgeFond: "#D4A843",
     badgeTexte: "#2A1F14",
   },
+
   hiver: {
     nom: "Hiver",
     fondPage: "#F0F4F8",
@@ -47,6 +51,7 @@ export const SAISONS = {
     badgeFond: "#2E4A6A",
     badgeTexte: "#F0F4F8",
   },
+
   nuit: {
     nom: "Nuit",
     fondPage: "#0D1117",
@@ -61,27 +66,32 @@ export const SAISONS = {
   },
 };
 
+// Couleurs utilisées pour les icônes selon la saison
 export const COULEURS_ICONES = {
   printemps: [
     { fond: "#A2D39C", texte: "#111827" },
     { fond: "#F5D7E3", texte: "#111827" },
     { fond: "#FFFA9C", texte: "#111827" },
   ],
+
   ete: [
     { fond: "#3A9BD5", texte: "#FFFFFF" },
     { fond: "#3A9BD5", texte: "#FFFFFF" },
     { fond: "#3A9BD5", texte: "#FFFFFF" },
   ],
+
   automne: [
     { fond: "#C0622A", texte: "#FFFFFF" },
     { fond: "#C0622A", texte: "#FFFFFF" },
     { fond: "#C0622A", texte: "#FFFFFF" },
   ],
+
   hiver: [
     { fond: "#5BA4CF", texte: "#FFFFFF" },
     { fond: "#5BA4CF", texte: "#FFFFFF" },
     { fond: "#5BA4CF", texte: "#FFFFFF" },
   ],
+
   nuit: [
     { fond: "#58A6FF", texte: "#0D1117" },
     { fond: "#58A6FF", texte: "#0D1117" },
