@@ -49,13 +49,20 @@ export default function BarreNavigation({ couleurActive, couleurTexte, saisonAct
         // Vérifie si ce lien correspond à la page actuellement affichée
         const estActif = pathname === lien.href;
 
+        let couleurLien;
+        if (estActif) {
+            couleurLien = couleurActive;
+        } else {
+            couleurLien = couleurTexte;
+        }
+
         return (
           <Link
             key={lien.href}
             href={lien.href}
             className="barre-navigation-lien"
             // Couleur différente si le lien est actif ou non
-            style={{ color: estActif ? couleurActive : couleurTexte }}
+            style={{ color: couleurLien }}
           >
             <Icone size={20} />
             <span>{lien.label}</span>

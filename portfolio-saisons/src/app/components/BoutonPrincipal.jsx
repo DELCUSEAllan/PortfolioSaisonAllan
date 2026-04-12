@@ -16,7 +16,7 @@ export default function BoutonPrincipal({ texte, couleurFond, couleurTexte }) {
         // Couleur du texte du bouton
         color: couleurTexte,
 
-        // Ombre du bouton avec une légère transparence
+        // Ombre du bouton avec une légère transparence, 4D code héxa représentant 30% opacité
         boxShadow: `0 10px 20px ${couleurFond}4D`,
       }}
       onClick={() => router.push("/projets")}

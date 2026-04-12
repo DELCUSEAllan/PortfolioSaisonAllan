@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 
 // Définition et validation des types de données reçues en props
 EnTeteAccueil.propTypes = {
-  valeurSaison: PropTypes.string,   // La saison sélectionnée dans le menu
-  onChangeSaison: PropTypes.func,   // La fonction appelée quand on change de saison
+  valeurSaison: PropTypes.string, // La saison sélectionnée dans le menu
+  onChangeSaison: PropTypes.func, // La fonction appelée quand on change de saison
   saisonActuelle: PropTypes.string, // La saison actuellement active
 };
 
@@ -18,9 +18,9 @@ export default function EnTeteAccueil({ valeurSaison, onChangeSaison, saisonActu
       <div className="en-tete-ligne-superieure">
         <div style={{ background: "none" }}>
           {/* Composant de sélection de saison */}
-          {/* valeur        → la saison actuellement choisie dans le menu */}
-          {/* onChange       → fonction déclenchée quand l'utilisateur change de saison */}
-          {/* saisonActuelle → utilisé pour colorer le bouton selon la saison */}
+          {/* valeur -> la saison actuellement choisie dans le menu */}
+          {/* onChange -> fonction déclenchée quand l'utilisateur change de saison */}
+          {/* saisonActuelle -> utilisé pour colorer le bouton selon la saison */}
           <SelectionSaison
             valeur={valeurSaison}
             onChange={onChangeSaison}
@@ -33,7 +33,7 @@ export default function EnTeteAccueil({ valeurSaison, onChangeSaison, saisonActu
       <div className="en-tete-contenu">
 
         {/* Photo de profil optimisée par Next.js */}
-        {/* priority → l'image est chargée en priorité car elle est visible immédiatement */}
+        {/* priority -> l'image est chargée en priorité car elle est visible immédiatement */}
         <div className="en-tete-avatar">
           <Image
             src="/avatar.webp"

@@ -42,8 +42,8 @@ export function SaisonProvider({ children }) {
   // useSyncExternalStore synchronise le localStorage avec React
   // Évite les problèmes d'hydratation entre serveur et navigateur
   const saisonStockee = useSyncExternalStore(
-    subscribe,        // s'abonner aux changements
-    getSnapshot,      // lire la valeur côté navigateur
+    subscribe, // s'abonner aux changements
+    getSnapshot, // lire la valeur côté navigateur
     getServerSnapshot // lire la valeur côté serveur
   );
 

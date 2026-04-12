@@ -9,8 +9,8 @@ RootLayout.propTypes = {
 };
 
 // Chargement des polices Google Fonts avec Next.js
-// variable → crée une variable CSS utilisable dans tout le projet
-// subsets → on ne charge que les caractères latins pour réduire le poids
+// variable -> crée une variable CSS utilisable dans tout le projet
+// subsets -> on ne charge que les caractères latins pour réduire le poids
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -29,7 +29,7 @@ export const metadata = {
 };
 
 // Composant racine qui enveloppe toutes les pages de l'application
-// children → le contenu de la page actuellement affichée
+// children -> le contenu de la page actuellement affichée
 export default function RootLayout({ children }) {
   return (
      <html lang="fr" suppressHydrationWarning>

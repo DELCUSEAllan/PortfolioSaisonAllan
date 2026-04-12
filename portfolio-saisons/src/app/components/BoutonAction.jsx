@@ -49,6 +49,7 @@ export default function BoutonAction({ couleurFond, couleurTexte }) {
         style={{ backgroundColor: couleurFond, color: couleurTexte }}
         onClick={() => setOuvert(!ouvert)}
       >
+
         <span
           className="bouton-action-icone"
           style={{

@@ -6,6 +6,9 @@ import { FaGithub } from "react-icons/fa";
 
 // Styles visuels pour chaque saison
 // filtreCoin -> filtre CSS appliqué sur les coins décoratifs pour les colorier selon la saison
+/* sepia(1) → transforme en tons dorés comme une vieille photo */
+/* saturate(3) → intensifie les couleurs x3 */
+/* hue-rotate(180deg) → pivote la teinte de 180° sur le cercle chromatique */
 const STYLES_SAISON = {
   printemps: { filtreCoin: "none",                                                    vignetteFond: "#F5D7E3", vignetteTexte: "#111827", carteFond: "rgba(255, 255, 255, 0.65)" },
   ete:       { filtreCoin: "sepia(1) saturate(3) hue-rotate(180deg)",                 vignetteFond: "#F2C46D", vignetteTexte: "#2C2420", carteFond: "rgba(255, 255, 255, 0.65)" },
@@ -31,12 +34,14 @@ export default function CarteProjet({ projet, index, couleurPrincipal, couleurTe
   const CarteContenu = projet.github ? motion.a : motion.div;
 
   return (
-    // initial    → état de départ (invisible, réduit, décalé vers le bas)
-    // animate    → état final (visible, taille normale, à la bonne position)
-    // whileHover → légère augmentation de taille au survol de la souris
+    // initial -> état de départ (invisible, réduit, décalé vers le bas)
+    // animate -> état final (visible, taille normale, à la bonne position)
+    // whileHover -> légère augmentation de taille au survol de la souris
     <CarteContenu
       className="carte-projet"
       href={projet.github || undefined}
+      /* Ouvre le lien GitHub dans un nouvel onglet de façon sécurisée */
+      /* Si pas de GitHub, ces attributs n'existent pas */
       target={projet.github ? "_blank" : undefined}
       rel={projet.github ? "noopener noreferrer" : undefined}
       style={{ backgroundColor: styles.carteFond, color: couleurTexteCarte }}
@@ -59,7 +64,7 @@ export default function CarteProjet({ projet, index, couleurPrincipal, couleurTe
       <div className="carte-projet-entete">
         <h2 className="carte-projet-nom">{projet.nom}</h2>
 
-        {/* L'icône GitHub n'est affichée que si le projet en a un */}
+        {/* L'icône GitHub n'est affichée que si le projet en a un, && = if sans else */}
         {projet.github && (
           <FaGithub size={20} style={{ color: couleurPrincipal }} />
         )}

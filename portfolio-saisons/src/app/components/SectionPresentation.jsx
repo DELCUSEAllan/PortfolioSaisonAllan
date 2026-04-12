@@ -50,6 +50,7 @@ export default function SectionPresentation({ saisonActuelle }) {
             <TexteMachineAEcrire
               texte={paragraphe}
               vitesse={0.03}
+              // Attends le délai avant de commencer à écrire
               delaiDepart={delai}
             />
 

@@ -54,10 +54,14 @@ function dessinerFeuille(ctx, feuille) {
 
   // Forme principale de la feuille
   ctx.beginPath();
+  // Met le vurseur en haut de la feuille
   ctx.moveTo(0, -t);
+  // Dessine une courbe de Bézier
   ctx.bezierCurveTo(t * 0.8, -t * 0.5, t * 0.8, t * 0.5, 0, t);
   ctx.bezierCurveTo(-t * 0.8, t * 0.5, -t * 0.8, -t * 0.5, 0, -t);
+  // Définit la couleur de remplissage
   ctx.fillStyle = feuille.couleur;
+  // Remplit la forme avec la couleur
   ctx.fill();
 
   // Trait au milieu de la feuille
@@ -84,6 +88,7 @@ export default function CanvasAutomne() {
     canvas.height = canvas.offsetHeight;
 
     // Crée toutes les feuilles au départ
+    // Equivalent à une boucle for avec index i incrémenté
     const feuilles = Array.from(
       { length: NOMBRE_FEUILLES },
       () => creerFeuille(canvas)

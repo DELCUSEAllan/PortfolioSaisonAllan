@@ -16,12 +16,12 @@ function creerFlocon(canvas) {
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height - canvas.height, // démarre au-dessus de l'écran
     taille: 6 + Math.random() * 6,
-    vitesseX: 0.2 + Math.random() * 0.5,             // légère dérive horizontale
-    vitesseY: 0.5 + Math.random() * 0.8,             // vitesse de chute
-    rotation: Math.random() * Math.PI * 2,            // angle de départ aléatoire
-    vitesseRotation: (Math.random() - 0.5) * 0.03,   // rotation lente dans un sens ou l'autre
+    vitesseX: 0.2 + Math.random() * 0.5, // légère dérive horizontale
+    vitesseY: 0.5 + Math.random() * 0.8, // vitesse de chute
+    rotation: Math.random() * Math.PI * 2, // angle de départ aléatoire
+    vitesseRotation: (Math.random() - 0.5) * 0.03, // rotation lente dans un sens ou l'autre
     opacite: 0.6 + Math.random() * 0.4,
-    oscillation: Math.random() * Math.PI * 2,         // phase de départ pour l'effet de balancement
+    oscillation: Math.random() * Math.PI * 2, // phase de départ pour l'effet de balancement
     vitesseOscillation: 0.02 + Math.random() * 0.02, // vitesse du balancement gauche/droite
     couleur: COULEURS_FLOCONS[Math.floor(Math.random() * COULEURS_FLOCONS.length)],
   };
@@ -45,7 +45,7 @@ function creerNuage(canvas, index, imgRatio) {
 function dessinerFlocon(ctx, flocon) {
   ctx.save();
   ctx.translate(flocon.x, flocon.y); // on se déplace au centre du flocon
-  ctx.rotate(flocon.rotation);       // on applique la rotation
+  ctx.rotate(flocon.rotation); // on applique la rotation
   ctx.globalAlpha = flocon.opacite;
   ctx.strokeStyle = flocon.couleur;
   ctx.lineWidth = 1.2;
@@ -55,12 +55,12 @@ function dessinerFlocon(ctx, flocon) {
 
   // On dessine 6 branches principales + 2 petites branches sur chaque grande branche
   for (let i = 0; i < 6; i++) {
-    const angle = (i / 6) * Math.PI * 2;       // angle de chaque branche (360° / 6)
-    const perpAngle1 = angle + Math.PI / 3;    // petite branche à +60°
-    const perpAngle2 = angle - Math.PI / 3;    // petite branche à -60°
-    const mx = Math.cos(angle) * t * 0.5;      // point milieu de la branche principale (x)
-    const my = Math.sin(angle) * t * 0.5;      // point milieu de la branche principale (y)
-    const brancheLen = t * 0.35;               // longueur des petites branches
+    const angle = (i / 6) * Math.PI * 2; // angle de chaque branche (360° / 6)
+    const perpAngle1 = angle + Math.PI / 3; // petite branche à +60°
+    const perpAngle2 = angle - Math.PI / 3; // petite branche à -60°
+    const mx = Math.cos(angle) * t * 0.5; // point milieu de la branche principale (x)
+    const my = Math.sin(angle) * t * 0.5; // point milieu de la branche principale (y)
+    const brancheLen = t * 0.35;  // longueur des petites branches
 
     // Branche principale du centre vers l'extérieur
     ctx.beginPath();
@@ -128,8 +128,8 @@ function demarrerAnimation(ctx, canvas, imgNuage, nuages, flocons, animRef) {
       ctx.globalAlpha = nuage.opacite;
       ctx.drawImage(
         imgNuage,
-        nuage.x - nuage.largeur / 2,  // centré horizontalement sur nuage.x
-        nuage.y - nuage.hauteur / 2,  // centré verticalement sur nuage.y
+        nuage.x - nuage.largeur / 2, // centré horizontalement sur nuage.x
+        nuage.y - nuage.hauteur / 2, // centré verticalement sur nuage.y
         nuage.largeur,
         nuage.hauteur
       );

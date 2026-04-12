@@ -38,7 +38,7 @@ export default function Projets() {
           {/* Titre caché sur desktop via CSS media query */}
           <h1 className="projets-titre">Mes Projets</h1>
             <p className="projets-intro">
-                <TexteFormat texte="Voici les **projets** sur lesquels je **travaille** ou ai travaillé au fil de ma **formation**. **Clique** sur une **carte** pour voir le code sur **GitHub** !" />
+                <TexteFormat texte="Voici les **projets** sur lesquels je **travaille** ou ai travaillé au fil de ma **formation**. **Clique** sur une **carte** pour voir le code sur **GitHub** !"/>
             </p>
 
           {/* Grille de cartes projets */}

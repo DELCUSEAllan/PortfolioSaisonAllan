@@ -79,7 +79,9 @@ export default function SelectionSaison({ valeur, onChange, compact, saisonActue
       <button
         className="select-saison-bouton"
         onClick={() => setOuvert(!ouvert)}
+        /* Indique aux lecteurs d'écran que ce bouton ouvre une liste déroulante */
         aria-haspopup="listbox"
+        /* Indique aux lecteurs d'écran si la liste est ouverte ou fermée */
         aria-expanded={ouvert}
         style={{
           backgroundColor: couleurs.fond,
