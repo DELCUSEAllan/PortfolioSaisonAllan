@@ -5,10 +5,7 @@ import PropTypes from "prop-types";
 import { FaGithub } from "react-icons/fa";
 
 // Styles visuels pour chaque saison
-// filtreCoin    → filtre CSS appliqué sur les coins décoratifs pour les colorier selon la saison
-// vignetteFond  → couleur de fond des badges de technos
-// vignetteTexte → couleur du texte des badges de technos
-// carteFond     → couleur de fond de la carte projet
+// filtreCoin -> filtre CSS appliqué sur les coins décoratifs pour les colorier selon la saison
 const STYLES_SAISON = {
   printemps: { filtreCoin: "none",                                                    vignetteFond: "#F5D7E3", vignetteTexte: "#111827", carteFond: "rgba(255, 255, 255, 0.65)" },
   ete:       { filtreCoin: "sepia(1) saturate(3) hue-rotate(180deg)",                 vignetteFond: "#F2C46D", vignetteTexte: "#2C2420", carteFond: "rgba(255, 255, 255, 0.65)" },
@@ -19,7 +16,7 @@ const STYLES_SAISON = {
 
 export default function CarteProjet({ projet, index, couleurPrincipal, couleurTexte, saisonActuelle }) {
   // Récupère les styles de la saison active
-  // Si la saison n'existe pas dans le tableau, on utilise printemps par défaut
+  // Si la saison n'existe pas dans le tableau = printemps par défaut
   const styles = STYLES_SAISON[saisonActuelle] ?? STYLES_SAISON.printemps;
 
   // Couleur du texte de la carte selon la saison
@@ -30,12 +27,18 @@ export default function CarteProjet({ projet, index, couleurPrincipal, couleurTe
     couleurTexteCarte = undefined; // undefined = on laisse le CSS gérer
   }
 
+  // Si le projet a un GitHub, toute la carte devient un lien cliquable, sinon div normale non cliquable
+  const CarteContenu = projet.github ? motion.a : motion.div;
+
   return (
     // initial    → état de départ (invisible, réduit, décalé vers le bas)
     // animate    → état final (visible, taille normale, à la bonne position)
     // whileHover → légère augmentation de taille au survol de la souris
-    <motion.div
+    <CarteContenu
       className="carte-projet"
+      href={projet.github || undefined}
+      target={projet.github ? "_blank" : undefined}
+      rel={projet.github ? "noopener noreferrer" : undefined}
       style={{ backgroundColor: styles.carteFond, color: couleurTexteCarte }}
       initial={{ opacity: 0, scale: 0.8, y: 30 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -52,21 +55,13 @@ export default function CarteProjet({ projet, index, couleurPrincipal, couleurTe
       <div className="carte-coin carte-coin-haut-gauche" style={{ filter: styles.filtreCoin }} />
       <div className="carte-coin carte-coin-bas-droit" style={{ filter: styles.filtreCoin }} />
 
-      {/* En-tête avec le nom du projet et le lien GitHub */}
+      {/* En-tête avec le nom du projet et l'icône GitHub */}
       <div className="carte-projet-entete">
         <h2 className="carte-projet-nom">{projet.nom}</h2>
 
-        {/* Le lien GitHub n'est affiché que si le projet en a un */}
+        {/* L'icône GitHub n'est affichée que si le projet en a un */}
         {projet.github && (
-          <a
-            href={projet.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="carte-projet-github"
-            style={{ color: couleurPrincipal }}
-          >
-            <FaGithub size={20} />
-          </a>
+          <FaGithub size={20} style={{ color: couleurPrincipal }} />
         )}
       </div>
 
@@ -103,7 +98,7 @@ export default function CarteProjet({ projet, index, couleurPrincipal, couleurTe
           </span>
         ))}
       </div>
-    </motion.div>
+    </CarteContenu>
   );
 }
 

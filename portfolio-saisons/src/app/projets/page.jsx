@@ -7,6 +7,7 @@ import { SAISONS } from "../config/couleursSaisons";
 import { PROJETS } from "../config/projets";
 import { useSaison } from "../context/SaisonContext";
 import "../styles/projets/projets.css";
+import TexteFormat from "../components/TexteFormat";
 
 // Calcule dégradé de fond selon saison active, nuit = dégradé fixe, autres = couleurs dynamiques
 function calculerBackground(saisonActuelle, saison) {
@@ -36,9 +37,9 @@ export default function Projets() {
         <div className="projets-contenu">
           {/* Titre caché sur desktop via CSS media query */}
           <h1 className="projets-titre">Mes Projets</h1>
-          <p className="projets-intro">
-            Voici les projets sur lesquels je travaille ou ai travaillé au fil de ma formation.
-          </p>
+            <p className="projets-intro">
+                <TexteFormat texte="Voici les **projets** sur lesquels je **travaille** ou ai travaillé au fil de ma **formation**. **Clique** sur une **carte** pour voir le code sur **GitHub** !" />
+            </p>
 
           {/* Grille de cartes projets */}
           {/* On parcourt le tableau PROJETS et on crée une CarteProjet pour chacun */}

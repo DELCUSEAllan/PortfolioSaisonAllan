@@ -9,6 +9,7 @@ import { useSaison } from "../context/SaisonContext";
 import "../styles/contact/contact.css";
 import { useState, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
+import TexteFormat from "../components/TexteFormat";
 
 // Chargement côté navigateur pour optimiser les performances
 const BarreNavigation = dynamic(() => import("../components/BarreNavigation"), { ssr: false });
@@ -143,7 +144,7 @@ export default function Contact() {
           {/* Titre caché sur desktop via CSS media query */}
           <h1 className="contact-titre">Contact</h1>
           <p className="contact-intro">
-            Une question, une opportunité de stage ou juste envie de discuter ?
+             <TexteFormat texte= "Une **question**, une **opportunité** de **stage** ou juste envie de **discuter** ?" />
           </p>
 
           {/* Icônes de contact colorées selon la saison */}

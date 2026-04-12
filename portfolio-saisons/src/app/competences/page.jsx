@@ -8,7 +8,7 @@ import dynamic from "next/dynamic";
 
 const BarreNavigation = dynamic(() => import("../components/BarreNavigation"), { ssr: false });
 const VignetteCompetence = dynamic(() => import("../components/VignetteCompetence"), { ssr: false });
-const TexteFormate = dynamic(() => import("../components/TexteFormat"), { ssr: false });
+const TexteFormat = dynamic(() => import("../components/TexteFormat"), { ssr: false });
 
 // Calcule le dégradé de fond selon la saison active
 // Le mode nuit a un dégradé fixe, les autres saisons utilisent leurs couleurs dynamiques
@@ -40,7 +40,7 @@ export default function Competences() {
 
           {/* Texte d'introduction avec mise en forme (gras, italique, etc.) */}
           <p className="competences-intro">
-            <TexteFormate texte={INTRO_COMPETENCES} />
+            <TexteFormat texte={INTRO_COMPETENCES} />
           </p>
 
             {/* Liste des vignettes de compétences */}
