@@ -102,7 +102,7 @@ export default function SelectionSaison({ valeur, onChange, compact, saisonActue
       {ouvert && (
         <ul
           className="select-saison-dropdown"
-          style={{ backgroundColor: COULEURS_DROPDOWN[saisonActuelle] ?? "#F5D7E3" }}
+          style={{ backgroundColor: COULEURS_DROPDOWN[saisonActuelle] ?? COULEURS_DROPDOWN.printemps }}
         >
           {renderOptions()}
         </ul>

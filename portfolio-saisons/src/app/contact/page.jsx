@@ -280,7 +280,7 @@ export default function Contact() {
           {/* Lien vers le CV PDF qui s'ouvre dans un nouvel onglet */}
           <div className="contact-cv">
             <a
-              href="/CV Delcuse Allan.pdf"
+              href="/CV_Allan_Delcuse.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-bouton-cv"

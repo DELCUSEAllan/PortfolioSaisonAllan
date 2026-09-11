@@ -46,8 +46,8 @@ function dessinerFlocon(ctx, flocon) {
   ctx.save();
   ctx.translate(flocon.x, flocon.y); // on se déplace au centre du flocon
   ctx.rotate(flocon.rotation); // on applique la rotation
-  ctx.globalAlpha = flocon.opacite;
-  ctx.strokeStyle = flocon.couleur;
+  ctx.globalAlpha = flocon.opacite; // transparence du flocon (0 = invisible, 1 = opaque)
+  ctx.strokeStyle = flocon.couleur; // couleur des traits du flocon
   ctx.lineWidth = 1.2;
   ctx.lineCap = "round";
 

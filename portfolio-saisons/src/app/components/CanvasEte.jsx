@@ -47,7 +47,7 @@ function dessinerSoleil(ctx, x, y, rayon, temps) {
     ctx.lineTo(xFin, yFin);
     ctx.strokeStyle = "#F2C46D";
     ctx.lineWidth = 3;
-    ctx.lineCap = "round";
+    ctx.lineCap = "round"; // stylo laisse un bout arrondi, comme un crayon bien taillé
     ctx.shadowColor = "rgba(255, 220, 80, 0.5)";
     ctx.shadowBlur = 6;
     ctx.stroke();

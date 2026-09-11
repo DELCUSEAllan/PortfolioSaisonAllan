@@ -1,0 +1,5 @@
+key word dans métadonnées
+page mes projets : decalage en colonne en ligens le mettre en colonne verticale
+zoom sur le placeholder sur la page contact
+ralentissemtn scintillant
+ajoute un manifest (logo de page)

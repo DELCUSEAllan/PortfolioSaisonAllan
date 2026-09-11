@@ -39,7 +39,7 @@ export default function VignetteCompetence({ competence, index, saisonActuelle }
   const niveau = NIVEAUX[competence.niveau];
 
   // Déco selon la saison actuelle
-  const deco = DECORATIONS[saisonActuelle] || DECORATIONS.printemps;
+  const deco = DECORATIONS[saisonActuelle] ?? DECORATIONS.printemps;
 
   return (
     <motion.div

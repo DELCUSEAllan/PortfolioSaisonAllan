@@ -160,6 +160,6 @@
   /* Si la dernière vignette est seule sur sa ligne, elle est centrée sur 2 colonnes */
   /* :last-child = dernier élément, :nth-child(4n + 1) = premier d'une nouvelle ligne */
   .competences-liste > *:last-child:nth-child(4n + 1) {
-    grid-column: 2 / 4; /* occupe les colonnes 2 et 3 = centré dans la grille de 4 */
+    grid-column:  1/ 4; /* occupe les colonnes 2 et 3 = centré dans la grille de 4 */
   }
 }

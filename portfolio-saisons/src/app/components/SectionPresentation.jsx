@@ -20,7 +20,7 @@ const COULEURS_LIEN = {
 export default function SectionPresentation({ saisonActuelle }) {
   const dernierIndex = PRESENTATION.paragraphes.length - 1;
 
-  const couleurLien = COULEURS_LIEN[saisonActuelle] ?? "#A2D39C";
+  const couleurLien = COULEURS_LIEN[saisonActuelle] ?? COULEURS_LIEN.printemps;
 
   return (
     <section className="section-presentation">
